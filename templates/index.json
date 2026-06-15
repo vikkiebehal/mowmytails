@@ -65,9 +65,10 @@
         "safe": { "type": "benefit", "settings": { "icon": "01", "title": "Pet-Safe Materials", "text": "Thoughtful materials chosen for everyday life." } },
         "fit": { "type": "benefit", "settings": { "icon": "02", "title": "Comfortable Fit", "text": "Designed around movement, rest and play." } },
         "quality": { "type": "benefit", "settings": { "icon": "03", "title": "Curated Quality", "text": "Dependable pieces with considered details." } },
-        "delivery": { "type": "benefit", "settings": { "icon": "04", "title": "Fast Delivery", "text": "Carefully packed and reliably dispatched." } }
+        "delivery": { "type": "benefit", "settings": { "icon": "04", "title": "Fast Delivery", "text": "Carefully packed and reliably dispatched." } },
+        "made_in_india": { "type": "benefit", "settings": { "icon": "05", "show_made_in_india_badge": true, "title": "Made in India", "text": "Proudly made in India for Indian pets." } }
       },
-      "block_order": ["safe", "fit", "quality", "delivery"]
+      "block_order": ["safe", "fit", "quality", "delivery", "made_in_india"]
     },
     "mowmy-brand-story": {
       "type": "mowmy-brand-story",

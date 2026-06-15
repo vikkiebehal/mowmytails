@@ -702,6 +702,20 @@ h1, h2, h3 { font-family: var(--mt-serif); letter-spacing: -.045em; font-weight:
   height: 96px;
 }
 
+.mt-why-choose .mt-trust-grid {
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 16px;
+}
+
+.mt-why-choose .mt-trust-item {
+  padding: 24px 20px;
+}
+
+.mt-why-choose .mt-trust-icon img {
+  width: 44px;
+  height: 44px;
+}
+
 @media (max-width: 989px) {
   .mt-petilio-hero .mt-hero-slider {
     min-height: 420px;

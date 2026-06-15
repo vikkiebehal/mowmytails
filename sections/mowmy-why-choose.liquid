@@ -1,4 +1,4 @@
-<section class="mt-section mt-section--soft mt-reveal">
+<section class="mt-section mt-section--soft mt-reveal mt-why-choose">
   <div class="mt-page">
     <div class="mt-section-head">
       <span class="mt-eyebrow">{{ section.settings.eyebrow }}</span>
@@ -8,7 +8,13 @@
     <div class="mt-trust-grid">
       {% for block in section.blocks %}
         <div class="mt-trust-item" {{ block.shopify_attributes }}>
-          <div class="mt-trust-icon">{{ block.settings.icon }}</div>
+          <div class="mt-trust-icon">
+            {% if block.settings.show_made_in_india_badge %}
+              <img src="{{ 'made-in-india-badge.svg' | asset_url }}" width="240" height="240" alt="Proudly Made in India for Indian Pets">
+            {% else %}
+              {{ block.settings.icon }}
+            {% endif %}
+          </div>
           <h3>{{ block.settings.title }}</h3>
           <p>{{ block.settings.text }}</p>
         </div>
@@ -28,6 +34,7 @@
   "blocks": [
     { "type": "benefit", "name": "Benefit", "settings": [
       { "type": "text", "id": "icon", "label": "Number/Icon", "default": "01" },
+      { "type": "checkbox", "id": "show_made_in_india_badge", "label": "Show Made in India badge", "default": false },
       { "type": "text", "id": "title", "label": "Title", "default": "Pet-Safe Materials" },
       { "type": "textarea", "id": "text", "label": "Text", "default": "Thoughtful materials chosen for everyday life." }
     ] }
@@ -36,7 +43,8 @@
     { "type": "benefit", "settings": { "icon": "01", "title": "Pet-Safe Materials" } },
     { "type": "benefit", "settings": { "icon": "02", "title": "Comfortable Fit" } },
     { "type": "benefit", "settings": { "icon": "03", "title": "Curated Quality" } },
-    { "type": "benefit", "settings": { "icon": "04", "title": "Fast Delivery" } }
+    { "type": "benefit", "settings": { "icon": "04", "title": "Fast Delivery" } },
+    { "type": "benefit", "settings": { "icon": "05", "show_made_in_india_badge": true, "title": "Made in India", "text": "Proudly made in India for Indian pets." } }
   ] }]
 }
 {% endschema %}
