@@ -12,7 +12,7 @@
         <span class="mt-eyebrow">{{ section.settings.eyebrow }}</span>
         <h2 class="mt-title mt-serif">{{ section.settings.heading }}</h2>
         <p>{{ section.settings.body }}</p>
-        <a class="mt-btn mt-btn--primary" href="{{ section.settings.link }}">{{ section.settings.button_text }}</a>
+        <a class="mt-btn mt-btn--primary" href="{{ section.settings.link | default: '/pages/about-us' }}">{{ section.settings.button_text }}</a>
       </div>
     </div>
   </div>
@@ -26,9 +26,9 @@
     { "type": "text", "id": "heading", "label": "Heading", "default": "Made for pets who are family." },
     { "type": "textarea", "id": "body", "label": "Body", "default": "From morning walks to cozy nap corners, Mowmy Tails brings comfort, style and care into every little routine." },
     { "type": "text", "id": "button_text", "label": "Button text", "default": "Our Story" },
-    { "type": "url", "id": "link", "label": "Link", "default": "/pages/about-us" },
+    { "type": "url", "id": "link", "label": "Link" },
     { "type": "image_picker", "id": "image", "label": "Image" },
-    { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Pet parent cuddling a dog at home" }
+    { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Pet parent with dog at home" }
   ],
   "presets": [{ "name": "Our Story" }]
 }
