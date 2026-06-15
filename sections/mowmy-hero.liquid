@@ -1,5 +1,4 @@
 <section class="mt-hero">
-  <span class="mt-float-accent" style="top:8%;left:2%"></span>
   <div class="mt-page mt-hero-grid">
     <div class="mt-hero-copy">
       <span class="mt-eyebrow">{{ section.settings.eyebrow }}</span>
@@ -35,7 +34,6 @@
         </div>
       {% endfor %}
       <div class="mt-floating-note"><strong>{{ section.settings.slider_note }}</strong><span>{{ section.settings.slider_subnote }}</span></div>
-      <div class="mt-slider-dots">{% for block in section.blocks %}<button class="mt-slider-dot {% if forloop.first %}is-active{% endif %}" type="button" aria-label="Show slide {{ forloop.index }}" data-slide-dot></button>{% endfor %}</div>
     </div>
   </div>
 </section>

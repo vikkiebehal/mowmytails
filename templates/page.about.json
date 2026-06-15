@@ -1,1 +1,48 @@
-{"sections":{"main":{"type":"main-about","blocks":{"comfort":{"type":"value","settings":{"title":"Comfort first","text":"Every product is considered through the way pets move, rest and play."}},"quality":{"type":"value","settings":{"title":"Curated quality","text":"We choose materials, details and construction with everyday durability in mind."}},"love":{"type":"value","settings":{"title":"Love in action","text":"Each purchase helps us extend a bowl of love and care to more pets."}}},"block_order":["comfort","quality","love"]}},"order":["main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-about",
+      "blocks": {
+        "comfort": {
+          "type": "value",
+          "settings": {
+            "title": "Comfort first",
+            "text": "Every product is considered through the way pets move, rest and play."
+          }
+        },
+        "quality": {
+          "type": "value",
+          "settings": {
+            "title": "Curated quality",
+            "text": "We choose materials, details and construction with everyday durability in mind."
+          }
+        },
+        "love": {
+          "type": "value",
+          "settings": {
+            "title": "Love in action",
+            "text": "Each purchase helps us extend a bowl of love and care to more pets."
+          }
+        }
+      },
+      "block_order": [
+        "comfort",
+        "quality",
+        "love"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
