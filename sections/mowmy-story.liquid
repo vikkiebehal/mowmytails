@@ -5,7 +5,7 @@
         {% if section.settings.image != blank %}
           {{ section.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', alt: section.settings.image_alt }}
         {% else %}
-          <img src="{{ 'mt-photo-story-family.jpg' | asset_url }}" alt="{{ section.settings.image_alt }}" loading="lazy">
+          <img src="{{ 'mt-photo-story-family.jpg' | asset_url }}" width="1200" height="900" alt="{{ section.settings.image_alt }}" loading="lazy">
         {% endif %}
       </div>
       <div class="mt-story-copy">

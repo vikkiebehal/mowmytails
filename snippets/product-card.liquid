@@ -1,0 +1,37 @@
+{% doc %}
+Renders a reusable product card with price and quick add.
+@param {product} product - Product to render
+@param {boolean} [show_rating] - Show decorative rating
+{% enddoc %}
+
+<article class="mt-product-card mt-reveal">
+  <div class="mt-product-card__media">
+    {% if product.available == false %}<span class="mt-product-badge">Sold out</span>{% elsif product.compare_at_price > product.price %}<span class="mt-product-badge">Sale</span>{% endif %}
+    <button class="mt-wishlist" type="button" aria-label="Save {{ product.title | escape }}">♡</button>
+    <a href="{{ product.url }}">
+      {% if product.featured_image %}
+        {{ product.featured_image | image_url: width: 720 | image_tag: loading: 'lazy', widths: '320, 480, 720', sizes: '(min-width: 990px) 25vw, 50vw', alt: product.featured_image.alt | default: product.title }}
+      {% else %}
+        {{ 'product-1' | placeholder_svg_tag: 'mt-placeholder' }}
+      {% endif %}
+    </a>
+  </div>
+  <div class="mt-product-card__body">
+    {% if show_rating %}<span class="mt-stars" aria-label="Five out of five stars">★★★★★ <small>(5.0)</small></span>{% endif %}
+    <a class="mt-product-card__title" href="{{ product.url }}">{{ product.title }}</a>
+    <div class="mt-price-row">
+      <strong>{{ product.price | money }}</strong>
+      {% if product.compare_at_price > product.price %}<s>{{ product.compare_at_price | money }}</s>{% endif %}
+    </div>
+    {% if product.options_with_values.size > 0 %}
+      <div class="mt-variant-dots" aria-label="Available options">
+        {% for value in product.options_with_values.first.values limit: 5 %}<span title="{{ value }}" style="--dot-color: {{ value | handle }}"></span>{% endfor %}
+      </div>
+    {% endif %}
+    {% form 'product', product, class: 'mt-quick-form', data-ajax-cart-form: '' %}
+      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+      <input type="hidden" name="quantity" value="1">
+      <button class="mt-btn mt-btn--small mt-btn--primary" type="submit" {% unless product.available %}disabled{% endunless %}>{% if product.available %}Quick add{% else %}Sold out{% endif %}</button>
+    {% endform %}
+  </div>
+</article>

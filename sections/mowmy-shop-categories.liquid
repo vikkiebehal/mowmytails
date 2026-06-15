@@ -13,12 +13,12 @@
             {{ block.settings.image | image_url: width: 700 | image_tag: class: 'mt-category-image', loading: 'lazy', alt: block.settings.alt }}
           {% else %}
             {% case forloop.index %}
-              {% when 1 %}<img class="mt-category-image" src="{{ 'mt-photo-walk-essentials.jpg' | asset_url }}" alt="{{ block.settings.alt }}" loading="lazy">
-              {% when 2 %}<img class="mt-category-image" src="{{ 'mt-photo-pet-apparel.jpg' | asset_url }}" alt="{{ block.settings.alt }}" loading="lazy">
-              {% when 3 %}<img class="mt-category-image" src="{{ 'mt-photo-cozy-beds.jpg' | asset_url }}" alt="{{ block.settings.alt }}" loading="lazy">
-              {% when 4 %}<img class="mt-category-image" src="{{ 'mt-photo-toys-play.jpg' | asset_url }}" alt="{{ block.settings.alt }}" loading="lazy">
-              {% when 5 %}<img class="mt-category-image" src="{{ 'mt-photo-bowls-feeders.jpg' | asset_url }}" alt="{{ block.settings.alt }}" loading="lazy">
-              {% else %}<img class="mt-category-image" src="{{ 'mt-photo-grooming-picks.jpg' | asset_url }}" alt="{{ block.settings.alt }}" loading="lazy">
+              {% when 1 %}<img class="mt-category-image" src="{{ 'mt-photo-walk-essentials.jpg' | asset_url }}" width="1200" height="900" alt="{{ block.settings.alt }}" loading="lazy">
+              {% when 2 %}<img class="mt-category-image" src="{{ 'mt-photo-pet-apparel.jpg' | asset_url }}" width="1200" height="900" alt="{{ block.settings.alt }}" loading="lazy">
+              {% when 3 %}<img class="mt-category-image" src="{{ 'mt-photo-cozy-beds.jpg' | asset_url }}" width="1200" height="900" alt="{{ block.settings.alt }}" loading="lazy">
+              {% when 4 %}<img class="mt-category-image" src="{{ 'mt-photo-toys-play.jpg' | asset_url }}" width="1200" height="900" alt="{{ block.settings.alt }}" loading="lazy">
+              {% when 5 %}<img class="mt-category-image" src="{{ 'mt-photo-bowls-feeders.jpg' | asset_url }}" width="1200" height="900" alt="{{ block.settings.alt }}" loading="lazy">
+              {% else %}<img class="mt-category-image" src="{{ 'mt-photo-grooming-picks.jpg' | asset_url }}" width="1200" height="900" alt="{{ block.settings.alt }}" loading="lazy">
             {% endcase %}
           {% endif %}
           <div class="mt-category-content">
