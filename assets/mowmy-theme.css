@@ -81,20 +81,7 @@ linear-gradient(180deg,var(--mt-cream),#fffaf2)}
 .mt-hero-actions{display:flex;flex-wrap:wrap;gap:14px}
 .mt-hero-media{position:relative;min-height:610px;border-radius:42px;overflow:hidden;background:linear-gradient(135deg,var(--mt-sand),#fff6eb);box-shadow:var(--mt-shadow);border:1px solid rgba(31,59,45,.08)}
 .mt-hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.mt-hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(31,59,45,.22),transparent 48%),linear-gradient(0deg,rgba(31,59,45,.18),transparent 40%)}
-.mt-hero-illustration{position:absolute;inset:0;display:grid;place-items:end center;padding:42px}
-.mt-pet-scene{position:relative;width:min(520px,92%);height:420px}
-.mt-pet-card{position:absolute;bottom:0;border-radius:44% 44% 24px 24px;background:#B87852;box-shadow:0 30px 60px rgba(31,59,45,.16)}
-.mt-pet-card:before,.mt-pet-card:after{content:"";position:absolute;top:-32px;width:54px;height:72px;background:inherit;border-radius:50px 50px 10px 50px}
-.mt-pet-card:before{left:34px;transform:rotate(-34deg)}
-.mt-pet-card:after{right:34px;transform:rotate(34deg)}
-.mt-pet-dog{left:12px;width:190px;height:285px}
-.mt-pet-cat{right:84px;width:150px;height:220px;background:#E1D6C6}
-.mt-pet-large{right:0;width:210px;height:325px;background:linear-gradient(90deg,#B87852 0 58%,#2B241E 58%)}
-.mt-pet-face{position:absolute;left:0;right:0;top:58px;text-align:center;font-size:42px}
-.mt-pet-band{position:absolute;left:24px;right:24px;top:158px;background:var(--mt-forest);color:#fff;border-radius:20px;text-align:center;padding:14px 4px;font-size:12px;font-weight:1000;letter-spacing:.08em}
-.mt-pet-cat .mt-pet-band{top:126px;background:var(--mt-terracotta)}
-.mt-pet-large .mt-pet-band{top:188px;background:#2F5B43}
+.mt-hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(31,59,45,.22),transparent 48%),linear-gradient(0deg,rgba(31,59,45,.18),transparent 40%);pointer-events:none}
 .mt-hero-badge{position:absolute;right:24px;bottom:24px;background:rgba(255,253,248,.92);backdrop-filter:blur(10px);border:1px solid var(--mt-border);border-radius:22px;padding:16px 18px;box-shadow:var(--mt-soft-shadow);max-width:220px}
 .mt-hero-badge strong{display:block;color:var(--mt-forest);font-size:15px}
 .mt-hero-badge span{display:block;color:var(--mt-muted);font-size:13px;margin-top:3px}
@@ -102,13 +89,14 @@ linear-gradient(180deg,var(--mt-cream),#fffaf2)}
 /* Category cards */
 .mt-category-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 .mt-category-card{min-height:210px;border-radius:28px;overflow:hidden;position:relative;display:flex;align-items:flex-end;padding:22px;background:var(--mt-card);border:1px solid rgba(31,59,45,.08);box-shadow:var(--mt-soft-shadow);isolation:isolate}
-.mt-category-card:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(31,59,45,.72),rgba(31,59,45,.06) 70%);z-index:-1}
-.mt-category-card:after{content:"";position:absolute;right:-24px;top:-24px;width:140px;height:140px;border-radius:50%;background:rgba(243,232,213,.86);z-index:-2;transition:transform .32s ease}
-.mt-category-card:hover:after{transform:scale(1.04)}
+.mt-category-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .32s ease,filter .32s ease}
+.mt-category-card:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(31,59,45,.76),rgba(31,59,45,.12) 74%);z-index:-1}
+.mt-category-card:hover .mt-category-image{transform:scale(1.04);filter:saturate(1.05)}
 .mt-category-card:hover .mt-card-icon{transform:scale(1.04)}
-.mt-card-icon{position:absolute;right:18px;top:18px;font-size:64px;transition:transform .32s ease}
+.mt-card-icon{position:absolute;right:18px;top:18px;font-size:42px;transition:transform .32s ease;z-index:2;filter:drop-shadow(0 6px 12px rgba(0,0,0,.18))}
+.mt-category-content{position:relative;z-index:2}
 .mt-category-card h3{margin:0;color:#fff;font-size:24px;line-height:1.05;letter-spacing:-.03em}
-.mt-category-card span{display:block;color:rgba(255,255,255,.82);font-size:13px;font-weight:800;margin-top:8px}
+.mt-category-card span{display:block;color:rgba(255,255,255,.86);font-size:13px;font-weight:800;margin-top:8px}
 
 /* Products */
 .mt-product-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
@@ -118,13 +106,13 @@ linear-gradient(180deg,var(--mt-cream),#fffaf2)}
 .mt-product-media img{width:100%;height:100%;object-fit:cover;transition:transform .32s ease}
 .mt-product-card:hover .mt-product-media img{transform:scale(1.035)}
 .mt-product-placeholder{font-size:58px}
-.mt-badge{position:absolute;left:22px;top:22px;background:var(--mt-forest);color:#fff;border-radius:999px;padding:6px 10px;font-size:11px;font-weight:950;letter-spacing:.04em;text-transform:uppercase}
+.mt-badge{position:absolute;left:22px;top:22px;background:var(--mt-forest);color:#fff;border-radius:999px;padding:6px 10px;font-size:11px;font-weight:950;letter-spacing:.04em;text-transform:uppercase;z-index:3}
 .mt-product-info{padding:0 4px 4px}
 .mt-product-title{display:block;font-weight:900;color:var(--mt-charcoal);line-height:1.25;margin-bottom:7px}
 .mt-product-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
 .mt-price{font-weight:950;color:var(--mt-forest)}
 .mt-rating{font-size:12px;color:var(--mt-terracotta);white-space:nowrap}
-.mt-quick-add{width:100%;min-height:44px;border-radius:999px;border:1px solid var(--mt-forest);background:transparent;color:var(--mt-forest);font-weight:900;transition:background .2s ease,color .2s ease,transform .2s ease}
+.mt-quick-add{width:100%;min-height:44px;border-radius:999px;border:1px solid var(--mt-forest);background:transparent;color:var(--mt-forest);font-weight:900;transition:background .2s ease,color .2s ease,transform .2s ease;display:inline-flex;align-items:center;justify-content:center;text-align:center}
 .mt-quick-add:hover{background:var(--mt-forest);color:#fff;transform:translateY(-1px)}
 
 /* Trust + story + shop by pet */
@@ -136,15 +124,15 @@ linear-gradient(180deg,var(--mt-cream),#fffaf2)}
 .mt-story{display:grid;grid-template-columns:1fr;gap:22px;align-items:center;background:var(--mt-sand);border-radius:34px;padding:18px;border:1px solid rgba(31,59,45,.08)}
 .mt-story-media{min-height:300px;border-radius:26px;overflow:hidden;background:linear-gradient(135deg,#d8c4a8,#fff3df);position:relative}
 .mt-story-media img{width:100%;height:100%;object-fit:cover}
-.mt-story-placeholder{position:absolute;inset:0;display:grid;place-items:center;font-size:110px}
 .mt-story-copy{padding:8px 6px 12px}
 .mt-story-copy p{color:var(--mt-muted);font-size:17px;max-width:560px}
 .mt-pet-links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.mt-pet-link{background:var(--mt-card);border:1px solid rgba(31,59,45,.08);border-radius:22px;padding:22px;min-height:124px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--mt-soft-shadow);transition:transform .22s ease,border-color .22s ease}
+.mt-pet-link{background:var(--mt-card);border:1px solid rgba(31,59,45,.08);border-radius:22px;padding:12px;min-height:158px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--mt-soft-shadow);transition:transform .22s ease,border-color .22s ease;overflow:hidden}
 .mt-pet-link:hover{transform:translateY(-4px);border-color:rgba(31,59,45,.18)}
+.mt-pet-thumb{width:100%;aspect-ratio:16/10;border-radius:16px;object-fit:cover;background:var(--mt-sand);margin-bottom:12px}
 .mt-pet-link strong{font-size:19px;color:var(--mt-forest)}
 .mt-pet-link span{font-size:13px;color:var(--mt-muted);font-weight:800}
-.mt-size-guide{margin-top:14px;color:var(--mt-forest);font-weight:900;text-decoration:underline;text-underline-offset:4px}
+.mt-size-guide{margin-top:14px;color:var(--mt-forest);font-weight:900;text-decoration:underline;text-underline-offset:4px;display:inline-flex}
 
 /* Newsletter + footer */
 .mt-newsletter{background:var(--mt-forest);border-radius:34px;padding:34px 20px;color:#fff;text-align:center}
@@ -164,12 +152,12 @@ linear-gradient(180deg,var(--mt-cream),#fffaf2)}
 .mt-reveal.is-visible{opacity:1;transform:translateY(0)}
 .mt-hero-copy{animation:mtFadeUp .8s .08s both}
 .mt-hero-media{animation:mtFadeUp .9s .18s both}
-.mt-pet-scene{animation:mtFloatSoft 6s ease-in-out infinite}
+.mt-hero-image{animation:mtFloatSoft 7s ease-in-out infinite}
 .mt-btn,.mt-product-card,.mt-category-card,.mt-pet-link{will-change:transform}
 
 @keyframes mtGradient{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
 @keyframes mtFadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-@keyframes mtFloatSoft{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes mtFloatSoft{0%,100%{transform:scale(1.01) translateY(0)}50%{transform:scale(1.035) translateY(-8px)}}
 
 @media (min-width: 760px){
   .mt-page{width:min(var(--mt-page),calc(100% - 64px))}
@@ -198,15 +186,8 @@ linear-gradient(180deg,var(--mt-cream),#fffaf2)}
   .mt-mobile-drawer a:hover{background:var(--mt-sand)}
   .mt-hero{min-height:82vh;padding-top:18px}
   .mt-hero-grid{grid-template-columns:1fr;gap:24px;min-height:auto}
-  .mt-hero-media{min-height:360px;border-radius:30px}
-  .mt-pet-scene{height:300px}
-  .mt-pet-dog{width:118px;height:205px}
-  .mt-pet-cat{width:96px;height:165px;right:70px}
-  .mt-pet-large{width:132px;height:230px}
-  .mt-pet-face{font-size:28px;top:44px}
-  .mt-pet-band{left:12px;right:12px;top:114px;font-size:10px;padding:10px 2px}
-  .mt-pet-cat .mt-pet-band{top:94px}
-  .mt-pet-large .mt-pet-band{top:136px}
+  .mt-hero-media{min-height:420px;border-radius:30px}
+  .mt-hero-image{object-position:center}
 }
 @media (max-width: 420px){
   .mt-brand-text strong{font-size:19px}
@@ -217,6 +198,7 @@ linear-gradient(180deg,var(--mt-cream),#fffaf2)}
   .mt-product-card{padding:9px;border-radius:20px}
   .mt-product-title{font-size:14px}
   .mt-product-meta{display:grid;gap:4px}
+  .mt-card-icon{font-size:34px}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
