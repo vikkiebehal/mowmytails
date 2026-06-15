@@ -711,3 +711,70 @@ h1, h2, h3 { font-family: var(--mt-serif); letter-spacing: -.045em; font-weight:
     bottom: 16px;
   }
 }
+
+/* Mobile image ratio fix: remove empty image-card space on story and hero panels */
+.mt-story-media {
+  height: 560px;
+  min-height: 0;
+}
+
+.mt-story-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 989px) {
+  .mt-story {
+    gap: 28px;
+  }
+
+  .mt-story-media {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+    border-radius: 30px;
+  }
+
+  .mt-petilio-hero .mt-hero-slider {
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 640px) {
+  .mt-story {
+    gap: 20px;
+  }
+
+  .mt-story-media {
+    aspect-ratio: 1 / .78;
+    border-radius: 26px;
+  }
+
+  .mt-story-copy {
+    padding: 26px 22px;
+    border-radius: 24px;
+  }
+
+  .mt-petilio-hero {
+    padding: 34px 0 48px;
+  }
+
+  .mt-petilio-hero .mt-hero-grid {
+    gap: 24px;
+  }
+
+  .mt-petilio-hero .mt-hero-slider {
+    min-height: 0;
+    aspect-ratio: 1 / .88;
+    border-width: 7px;
+    border-radius: 24px;
+  }
+
+  .mt-petilio-hero .mt-hero-slide,
+  .mt-petilio-hero .mt-hero-slide img {
+    height: 100%;
+  }
+}
