@@ -1,7 +1,21 @@
 {
   "sections": {
     "hero": {
-      "type": "mowmy-hero",
+      "type": "hero",
+      "settings": {
+        "eyebrow": "Designed for their happiest days",
+        "heading": "Premium Pet Essentials for Happy Tails",
+        "subtext": "Stylish apparel, comfy beds, playful toys, and everyday accessories made for dogs and cats.",
+        "love_heading": "1 Purchase = 1 Bowl of Love",
+        "love_text": "Every order helps us spread a little more love and care for pets.",
+        "primary_label": "Shop New Arrivals",
+        "primary_link": "/collections/new-arrivals",
+        "secondary_label": "Explore Collections",
+        "secondary_link": "/collections",
+        "trust_badge_1": "Soft Fabrics",
+        "trust_badge_2": "Pet-Safe Products",
+        "trust_badge_3": "Easy Returns"
+      },
       "blocks": {
         "slide_1": { "type": "slide" },
         "slide_2": { "type": "slide" },
