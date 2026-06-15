@@ -62,16 +62,10 @@
     <div class="mt-hero-media" aria-label="Stylish pets wearing Mowmy Tails essentials">
       {% if section.settings.hero_image != blank %}
         {{ section.settings.hero_image | image_url: width: 1400 | image_tag: class: 'mt-hero-image', loading: 'eager', alt: 'Mowmy Tails premium pet essentials lifestyle image' }}
-        <div class="mt-hero-overlay"></div>
       {% else %}
-        <div class="mt-hero-illustration" aria-hidden="true">
-          <div class="mt-pet-scene">
-            <div class="mt-pet-card mt-pet-dog"><span class="mt-pet-face">🐶</span><span class="mt-pet-band">DAILY WALKS</span></div>
-            <div class="mt-pet-card mt-pet-cat"><span class="mt-pet-face">🐱</span><span class="mt-pet-band">COZY FIT</span></div>
-            <div class="mt-pet-card mt-pet-large"><span class="mt-pet-face">🐕</span><span class="mt-pet-band">COMFORT</span></div>
-          </div>
-        </div>
+        <img class="mt-hero-image" src="{{ 'mt-home-hero-lifestyle.svg' | asset_url }}" alt="Dog and cat relaxing with premium Mowmy Tails essentials" loading="eager">
       {% endif %}
+      <div class="mt-hero-overlay"></div>
       <div class="mt-hero-badge">
         <strong>Pet-safe. Comfort-first.</strong>
         <span>Designed for Indian homes, walks and weather.</span>
@@ -90,10 +84,12 @@
       {% assign categories = "Walk Essentials|Pet Apparel|Cozy Beds|Toys & Play|Bowls & Feeders|Grooming Picks" | split: "|" %}
       {% assign icons = "🦮|🧥|🛏️|🎾|🥣|🫧" | split: "|" %}
       {% assign links = "/collections/walk-essentials|/collections/pet-apparel|/collections/cozy-beds|/collections/toys-play|/collections/bowls-feeders|/collections/grooming-picks" | split: "|" %}
+      {% assign images = "mt-product-harness.svg|mt-product-sweater.svg|mt-product-bed.svg|mt-product-rope.svg|mt-product-bowl.svg|mt-category-grooming.svg" | split: "|" %}
       {% for category in categories %}
         <a class="mt-category-card" href="{{ links[forloop.index0] }}" aria-label="Shop {{ category }}">
+          <img class="mt-category-image" src="{{ images[forloop.index0] | asset_url }}" alt="{{ category }} for pets" loading="lazy">
           <span class="mt-card-icon" aria-hidden="true">{{ icons[forloop.index0] }}</span>
-          <div>
+          <div class="mt-category-content">
             <h3 class="mt-serif">{{ category }}</h3>
             <span>Shop collection</span>
           </div>
@@ -144,15 +140,15 @@
           </article>
         {% endfor %}
       {% else %}
-        {% assign demo_titles = "Everyday Comfort Harness|Soft Knit Pet Tee|Cloud Nap Bed|Natural Play Rope" | split: "|" %}
+        {% assign demo_titles = "Adventure Comfort Harness|Soft Knit Pet Tee|Cloud Nap Bed|Natural Play Rope" | split: "|" %}
         {% assign demo_prices = "₹1,299|₹799|₹1,899|₹399" | split: "|" %}
         {% assign demo_badges = "Best Seller|New|Cozy Pick|Daily Play" | split: "|" %}
-        {% assign demo_icons = "🦮|🧥|🛏️|🎾" | split: "|" %}
+        {% assign demo_images = "mt-product-harness.svg|mt-product-sweater.svg|mt-product-bed.svg|mt-product-rope.svg" | split: "|" %}
         {% for title in demo_titles %}
           <article class="mt-product-card">
             <span class="mt-badge">{{ demo_badges[forloop.index0] }}</span>
             <a class="mt-product-media" href="/collections/all" aria-label="{{ title }}">
-              <span class="mt-product-placeholder" aria-hidden="true">{{ demo_icons[forloop.index0] }}</span>
+              <img class="mt-product-demo-image" src="{{ demo_images[forloop.index0] | asset_url }}" alt="{{ title }}" loading="lazy">
             </a>
             <div class="mt-product-info">
               <a class="mt-product-title" href="/collections/all">{{ title }}</a>
@@ -187,7 +183,7 @@
         {% if section.settings.story_image != blank %}
           {{ section.settings.story_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: 'Pet parent lifestyle story by Mowmy Tails' }}
         {% else %}
-          <span class="mt-story-placeholder" aria-hidden="true">🐾</span>
+          <img class="mt-story-demo-image" src="{{ 'mt-story-family.svg' | asset_url }}" alt="Pet parent cuddling a dog at home" loading="lazy">
         {% endif %}
       </div>
       <div class="mt-story-copy">
@@ -206,13 +202,18 @@
       <span class="mt-eyebrow">Shop by pet & size</span>
       <h2 class="mt-title mt-serif">Find the right fit faster</h2>
     </div>
+    {% assign pet_titles = "Shop for Dogs|Shop for Cats|Small Pets|Medium Pets|Large Pets|Size Guide" | split: "|" %}
+    {% assign pet_subtitles = "Walk, wear, sleep|Soft styles & essentials|XS–S comfort picks|Balanced daily fits|Stronger everyday gear|Measure before you buy" | split: "|" %}
+    {% assign pet_links = "/collections/dogs|/collections/cats|/collections/small-pets|/collections/medium-pets|/collections/large-pets|/pages/size-guide" | split: "|" %}
+    {% assign pet_images = "mt-pet-dogs.svg|mt-pet-cats.svg|mt-pet-cats.svg|mt-pet-dogs.svg|mt-pet-dogs.svg|mt-product-sweater.svg" | split: "|" %}
     <div class="mt-pet-links">
-      <a class="mt-pet-link" href="/collections/dogs"><strong>Shop for Dogs</strong><span>Walk, wear, sleep</span></a>
-      <a class="mt-pet-link" href="/collections/cats"><strong>Shop for Cats</strong><span>Soft styles & essentials</span></a>
-      <a class="mt-pet-link" href="/collections/small-pets"><strong>Small Pets</strong><span>XS–S comfort picks</span></a>
-      <a class="mt-pet-link" href="/collections/medium-pets"><strong>Medium Pets</strong><span>Balanced daily fits</span></a>
-      <a class="mt-pet-link" href="/collections/large-pets"><strong>Large Pets</strong><span>Stronger everyday gear</span></a>
-      <a class="mt-pet-link" href="/pages/size-guide"><strong>Size Guide</strong><span>Measure before you buy</span></a>
+      {% for pet in pet_titles %}
+        <a class="mt-pet-link" href="{{ pet_links[forloop.index0] }}">
+          <img class="mt-pet-thumb" src="{{ pet_images[forloop.index0] | asset_url }}" alt="{{ pet }}" loading="lazy">
+          <strong>{{ pet }}</strong>
+          <span>{{ pet_subtitles[forloop.index0] }}</span>
+        </a>
+      {% endfor %}
     </div>
     <a class="mt-size-guide" href="/pages/size-guide">View apparel size guide →</a>
   </div>
