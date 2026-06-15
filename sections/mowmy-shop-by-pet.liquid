@@ -1,0 +1,71 @@
+<section class="mt-section mt-reveal">
+  <div class="mt-page">
+    <div class="mt-section-head">
+      <span class="mt-eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2 class="mt-title mt-serif">{{ section.settings.heading }}</h2>
+      {% if section.settings.subtext != blank %}<p class="mt-subtitle">{{ section.settings.subtext }}</p>{% endif %}
+    </div>
+
+    <div class="mt-pet-links">
+      {% for block in section.blocks %}
+        <a class="mt-pet-link" href="{{ block.settings.link }}" {{ block.shopify_attributes }}>
+          {% if block.settings.image != blank %}
+            {{ block.settings.image | image_url: width: 500 | image_tag: class: 'mt-pet-thumb', loading: 'lazy', alt: block.settings.alt }}
+          {% else %}
+            {% case forloop.index %}
+              {% when 1 %}<img class="mt-pet-thumb" src="{{ 'mt-photo-dogs.jpg' | asset_url }}" alt="{{ block.settings.alt }}" loading="lazy">
+              {% when 2 %}<img class="mt-pet-thumb" src="{{ 'mt-photo-cats.jpg' | asset_url }}" alt="{{ block.settings.alt }}" loading="lazy">
+              {% when 3 %}<img class="mt-pet-thumb" src="{{ 'mt-photo-pet-apparel.jpg' | asset_url }}" alt="{{ block.settings.alt }}" loading="lazy">
+              {% when 4 %}<img class="mt-pet-thumb" src="{{ 'mt-photo-walk-essentials.jpg' | asset_url }}" alt="{{ block.settings.alt }}" loading="lazy">
+              {% else %}<img class="mt-pet-thumb" src="{{ 'mt-photo-dogs.jpg' | asset_url }}" alt="{{ block.settings.alt }}" loading="lazy">
+            {% endcase %}
+          {% endif %}
+          <strong>{{ block.settings.title }}</strong>
+          <span>{{ block.settings.text }}</span>
+        </a>
+      {% endfor %}
+    </div>
+
+    {% if section.settings.size_guide_link != blank %}
+      <a class="mt-size-guide" href="{{ section.settings.size_guide_link }}">{{ section.settings.size_guide_text }}</a>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Shop by Pet / Size",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Shop by pet & size" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Find the right fit faster" },
+    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "" },
+    { "type": "text", "id": "size_guide_text", "label": "Size guide text", "default": "View apparel size guide →" },
+    { "type": "url", "id": "size_guide_link", "label": "Size guide link", "default": "/pages/size-guide" }
+  ],
+  "blocks": [
+    {
+      "type": "pet_card",
+      "name": "Pet / size card",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Shop for Dogs" },
+        { "type": "text", "id": "text", "label": "Text", "default": "Walk, wear, sleep" },
+        { "type": "url", "id": "link", "label": "Link", "default": "/collections/all" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "alt", "label": "Alt text", "default": "Mowmy Tails pet lifestyle photo" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop by Pet / Size",
+      "blocks": [
+        { "type": "pet_card", "settings": { "title": "Shop for Dogs", "text": "Walk, wear, sleep", "link": "/collections/dogs", "alt": "Golden retriever portrait for dog shopping category" } },
+        { "type": "pet_card", "settings": { "title": "Shop for Cats", "text": "Soft styles & essentials", "link": "/collections/cats", "alt": "Tabby cat wearing a premium collar" } },
+        { "type": "pet_card", "settings": { "title": "Small Pets", "text": "XS–S comfort picks", "link": "/collections/small-pets", "alt": "Small dog wearing premium pet apparel" } },
+        { "type": "pet_card", "settings": { "title": "Medium Pets", "text": "Balanced daily fits", "link": "/collections/medium-pets", "alt": "Medium dog wearing walking essentials" } },
+        { "type": "pet_card", "settings": { "title": "Large Pets", "text": "Stronger everyday gear", "link": "/collections/large-pets", "alt": "Large golden retriever with premium pet accessories" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

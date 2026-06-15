@@ -1,0 +1,43 @@
+<section class="mt-section mt-reveal">
+  <div class="mt-page">
+    <div class="mt-trust-grid">
+      {% for block in section.blocks %}
+        <div class="mt-trust-item" {{ block.shopify_attributes }}>
+          <span class="mt-trust-icon" aria-hidden="true">{{ block.settings.icon }}</span>
+          <div>
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.text }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Trust Strip",
+  "blocks": [
+    {
+      "type": "trust_item",
+      "name": "Trust item",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon", "default": "🌿" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Pet-safe Materials" },
+        { "type": "text", "id": "text", "label": "Text", "default": "Soft, safe and everyday-ready." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trust Strip",
+      "blocks": [
+        { "type": "trust_item", "settings": { "icon": "🌿", "title": "Pet-safe Materials", "text": "Soft, safe and everyday-ready." } },
+        { "type": "trust_item", "settings": { "icon": "📏", "title": "Comfort-first Fit", "text": "Made for movement and rest." } },
+        { "type": "trust_item", "settings": { "icon": "↩", "title": "Easy Returns", "text": "Simple support if fit is not right." } },
+        { "type": "trust_item", "settings": { "icon": "🚚", "title": "Fast Shipping", "text": "Reliable delivery across India." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,33 @@
+<footer class="mt-footer">
+  <div class="mt-page mt-footer-grid">
+    <div class="mt-footer-brand">
+      <strong>{{ section.settings.brand_name }}</strong>
+      <p>{{ section.settings.text }}</p>
+    </div>
+    <nav class="mt-footer-links" aria-label="Footer navigation">
+      {% if section.settings.menu != blank and linklists[section.settings.menu].links.size > 0 %}
+        {% for link in linklists[section.settings.menu].links %}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {% endfor %}
+      {% else %}
+        <a href="/collections/all">Shop</a>
+        <a href="/pages/about-us">About</a>
+        <a href="/pages/size-guide">Size Guide</a>
+        <a href="/pages/contact">Contact</a>
+        <a href="/policies/shipping-policy">Shipping</a>
+      {% endif %}
+    </nav>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Mowmy Footer",
+  "settings": [
+    { "type": "text", "id": "brand_name", "label": "Brand name", "default": "Mowmy Tails" },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Premium pet lifestyle essentials for walks, naps, playtime and cuddles." },
+    { "type": "link_list", "id": "menu", "label": "Footer menu" }
+  ],
+  "presets": [{ "name": "Mowmy Footer" }]
+}
+{% endschema %}

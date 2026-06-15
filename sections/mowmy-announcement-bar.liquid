@@ -1,0 +1,58 @@
+<div class="announcement"><div class="announcement-track">{{ section.settings.announcement }}</div></div>
+
+{% stylesheet %}
+:root {
+  --forest: #173f35;
+}
+.announcement {
+  height: 38px;
+  overflow: hidden;
+  background: var(--forest);
+  color: #f4dbad;
+  display: flex;
+  align-items: center;
+  font-size: .72rem;
+  font-weight: 750;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+.announcement-track {
+  width: 100%;
+  text-align: center;
+  white-space: nowrap;
+}
+@media (max-width: 700px) {
+  .announcement {
+    height: 34px;
+  }
+  .announcement-track {
+    width: max-content;
+    animation: marquee 18s linear infinite;
+    padding-left: 100vw;
+  }
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-100%);
+  }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "announcement",
+      "label": "Announcement",
+      "default": "FREE SHIPPING ON ORDERS ABOVE ₹999 | PREMIUM PET ESSENTIALS MADE WITH LOVE ♡"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement bar"
+    }
+  ]
+}
+{% endschema %}
