@@ -100,13 +100,14 @@ class MowmyTheme {
     document.querySelectorAll('[data-hero-slider]').forEach((slider) => {
       const slides = [...slider.querySelectorAll('[data-hero-slide]')];
       if (slides.length < 2) return;
+      const controls = slider.closest('[data-hero-section]') || slider;
       let index = 0;
       const show = (next) => {
         index = (next + slides.length) % slides.length;
         slides.forEach((slide, slideIndex) => slide.classList.toggle('is-active', slideIndex === index));
-        slider.querySelectorAll('[data-slide-dot]').forEach((dot, dotIndex) => dot.classList.toggle('is-active', dotIndex === index));
+        controls.querySelectorAll('[data-slide-dot]').forEach((dot, dotIndex) => dot.classList.toggle('is-active', dotIndex === index));
       };
-      slider.querySelectorAll('[data-slide-dot]').forEach((dot, dotIndex) => dot.addEventListener('click', () => show(dotIndex)));
+      controls.querySelectorAll('[data-slide-dot]').forEach((dot, dotIndex) => dot.addEventListener('click', () => show(dotIndex)));
       window.setInterval(() => show(index + 1), 5200);
     });
   }

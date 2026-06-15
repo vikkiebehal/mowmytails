@@ -1,57 +1,38 @@
-<div class="announcement"><div class="announcement-track">{{ section.settings.announcement }}</div></div>
-
-{% stylesheet %}
-:root {
-  --forest: #173f35;
-}
-.announcement {
-  height: 38px;
-  overflow: hidden;
-  background: var(--forest);
-  color: #f4dbad;
-  display: flex;
-  align-items: center;
-  font-size: .72rem;
-  font-weight: 750;
-  letter-spacing: .13em;
-  text-transform: uppercase;
-}
-.announcement-track {
-  width: 100%;
-  text-align: center;
-  white-space: nowrap;
-}
-@media (max-width: 700px) {
-  .announcement {
-    height: 34px;
-  }
-  .announcement-track {
-    width: max-content;
-    animation: marquee 18s linear infinite;
-    padding-left: 100vw;
-  }
-}
-@keyframes marquee {
-  to {
-    transform: translateX(-100%);
-  }
-}
-{% endstylesheet %}
+<div class="announcement" role="region" aria-label="Store announcements">
+  <div class="announcement-track">
+    {% for block in section.blocks %}
+      <span class="announcement-item" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+    {% else %}
+      <span class="announcement-item">Free shipping above ₹999</span>
+      <span class="announcement-item">Made with care in India</span>
+      <span class="announcement-item">Easy returns</span>
+      <span class="announcement-item">1 purchase = 1 bowl of love</span>
+    {% endfor %}
+  </div>
+</div>
 
 {% schema %}
 {
   "name": "Announcement bar",
-  "settings": [
+  "blocks": [
     {
-      "type": "text",
-      "id": "announcement",
-      "label": "Announcement",
-      "default": "FREE SHIPPING ON ORDERS ABOVE ₹999 | PREMIUM PET ESSENTIALS MADE WITH LOVE ♡"
+      "type": "message",
+      "name": "Message",
+      "limit": 4,
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "Free shipping above ₹999" }
+      ]
     }
   ],
   "presets": [
     {
-      "name": "Announcement bar"
+      "name": "Announcement bar",
+      "blocks": [
+        { "type": "message", "settings": { "text": "Free shipping above ₹999" } },
+        { "type": "message", "settings": { "text": "Made with care in India" } },
+        { "type": "message", "settings": { "text": "Easy returns" } },
+        { "type": "message", "settings": { "text": "1 purchase = 1 bowl of love" } }
+      ]
     }
   ]
 }
