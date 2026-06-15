@@ -30,25 +30,37 @@
 
     <div class="mt-hero-visual mt-reveal">
       <div class="mt-hero-slider" data-hero-slider aria-label="Pet lifestyle gallery">
-        {% for block in section.blocks %}
-          <div class="mt-hero-slide {% if forloop.first %}is-active{% endif %}" data-hero-slide {{ block.shopify_attributes }}>
-            {% if block.settings.image %}
-              {{ block.settings.image | image_url: width: 1600 | image_tag: loading: 'eager', widths: '600, 900, 1200, 1600', sizes: '(min-width: 990px) 54vw, 100vw', alt: block.settings.alt }}
-            {% else %}
-              {% case forloop.index %}
-                {% when 1 %}<img src="{{ 'mt-photo-hero-lifestyle.jpg' | asset_url }}" width="1672" height="941" alt="Dog and pet parent enjoying a premium lifestyle" loading="eager">
-                {% when 2 %}<img src="{{ 'mt-photo-cats.jpg' | asset_url }}" width="1200" height="900" alt="Cat wearing a premium accessory" loading="lazy">
-                {% when 3 %}<img src="{{ 'mt-photo-cozy-beds.jpg' | asset_url }}" width="1200" height="900" alt="Dog resting on a comfortable pet bed" loading="lazy">
-                {% else %}<img src="{{ 'mt-photo-toys-play.jpg' | asset_url }}" width="1200" height="900" alt="Pet enjoying playtime with a toy" loading="lazy">
-              {% endcase %}
-            {% endif %}
-          </div>
-        {% endfor %}
+        {% if section.blocks.size > 0 %}
+          {% for block in section.blocks %}
+            <div class="mt-hero-slide {% if forloop.first %}is-active{% endif %}" data-hero-slide {{ block.shopify_attributes }}>
+              {% if block.settings.image %}
+                {{ block.settings.image | image_url: width: 1600 | image_tag: loading: 'eager', widths: '600, 900, 1200, 1600', sizes: '(min-width: 990px) 54vw, 100vw', alt: block.settings.alt }}
+              {% else %}
+                {% case forloop.index %}
+                  {% when 1 %}<img src="{{ 'mt-photo-hero-lifestyle.jpg' | asset_url }}" width="1672" height="941" alt="Dog and pet parent enjoying a premium lifestyle" loading="eager">
+                  {% when 2 %}<img src="{{ 'mt-photo-cats.jpg' | asset_url }}" width="1200" height="900" alt="Cat wearing a premium accessory" loading="lazy">
+                  {% when 3 %}<img src="{{ 'mt-photo-cozy-beds.jpg' | asset_url }}" width="1200" height="900" alt="Dog resting on a comfortable pet bed" loading="lazy">
+                  {% else %}<img src="{{ 'mt-photo-toys-play.jpg' | asset_url }}" width="1200" height="900" alt="Pet enjoying playtime with a toy" loading="lazy">
+                {% endcase %}
+              {% endif %}
+            </div>
+          {% endfor %}
+        {% else %}
+          <div class="mt-hero-slide is-active" data-hero-slide><img src="{{ 'mt-photo-hero-lifestyle.jpg' | asset_url }}" width="1672" height="941" alt="Premium pet lifestyle" loading="eager"></div>
+          <div class="mt-hero-slide" data-hero-slide><img src="{{ 'mt-photo-cats.jpg' | asset_url }}" width="1200" height="900" alt="Cat wearing premium pet accessory" loading="lazy"></div>
+          <div class="mt-hero-slide" data-hero-slide><img src="{{ 'mt-photo-cozy-beds.jpg' | asset_url }}" width="1200" height="900" alt="Dog on cozy pet bed" loading="lazy"></div>
+        {% endif %}
 
         <div class="mt-slider-dots" aria-label="Hero slider controls">
-          {% for block in section.blocks %}
-            <button class="mt-slider-dot {% if forloop.first %}is-active{% endif %}" type="button" data-slide-dot aria-label="Show slide {{ forloop.index }}"></button>
-          {% endfor %}
+          {% if section.blocks.size > 0 %}
+            {% for block in section.blocks %}
+              <button class="mt-slider-dot {% if forloop.first %}is-active{% endif %}" type="button" data-slide-dot aria-label="Show slide {{ forloop.index }}"></button>
+            {% endfor %}
+          {% else %}
+            <button class="mt-slider-dot is-active" type="button" data-slide-dot aria-label="Show slide 1"></button>
+            <button class="mt-slider-dot" type="button" data-slide-dot aria-label="Show slide 2"></button>
+            <button class="mt-slider-dot" type="button" data-slide-dot aria-label="Show slide 3"></button>
+          {% endif %}
         </div>
 
         <div class="mt-floating-note">

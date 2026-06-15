@@ -14,22 +14,53 @@ Renders a homepage product collection grid.
       {% if section.settings.collection %}<a class="mt-btn mt-btn--secondary" href="{{ section.settings.collection.url }}">View all</a>{% endif %}
     </div>
 
+    <div class="mt-product-tabs" aria-label="Product filters">
+      <span class="is-active">All</span><span>Apparel</span><span>Walk</span><span>Comfort</span>
+    </div>
+
     <div class="mt-product-grid">
-      {% for product in section.settings.collection.products limit: section.settings.limit %}
-        {% render 'product-card', product: product, show_rating: true %}
+      {% if section.settings.show_dynamic_products and section.settings.collection != blank %}
+        {% for product in section.settings.collection.products limit: section.settings.limit %}
+          {% render 'product-card', product: product, show_rating: true %}
+        {% endfor %}
       {% else %}
         {% for i in (1..4) %}
-          <article class="mt-product-card mt-reveal">
-            <div class="mt-product-card__media">{{ 'product-' | append: i | placeholder_svg_tag: 'mt-placeholder' }}</div>
+          {% case i %}
+            {% when 1 %}
+              {% assign fallback_title = 'Soft Walk Harness' %}
+              {% assign fallback_asset = 'mt-photo-walk-essentials.jpg' %}
+              {% assign fallback_price = 129900 %}
+            {% when 2 %}
+              {% assign fallback_title = 'Cozy Everyday Bed' %}
+              {% assign fallback_asset = 'mt-photo-cozy-beds.jpg' %}
+              {% assign fallback_price = 189900 %}
+            {% when 3 %}
+              {% assign fallback_title = 'Happy Tail Hoodie' %}
+              {% assign fallback_asset = 'mt-photo-pet-apparel.jpg' %}
+              {% assign fallback_price = 99900 %}
+            {% else %}
+              {% assign fallback_title = 'Playtime Rope Toy' %}
+              {% assign fallback_asset = 'mt-photo-toys-play.jpg' %}
+              {% assign fallback_price = 69900 %}
+          {% endcase %}
+          <article class="mt-product-card mt-reveal mt-demo-product-card">
+            <div class="mt-product-card__media">
+              <span class="mt-product-badge">New</span>
+              <button class="mt-wishlist" type="button" aria-label="Save {{ fallback_title }}">♡</button>
+              <a href="{{ routes.all_products_collection_url }}" aria-label="Shop {{ fallback_title }}">
+                <img src="{{ fallback_asset | asset_url }}" width="900" height="900" loading="lazy" alt="{{ fallback_title }} for pets">
+              </a>
+            </div>
             <div class="mt-product-card__body">
-              <span class="mt-stars">★★★★★ <small>(5.0)</small></span>
-              <strong class="mt-product-card__title">Premium pet essential</strong>
-              <div class="mt-price-row"><strong>{{ 129900 | money }}</strong></div>
+              <span class="mt-stars" aria-label="Five out of five stars">★★★★★ <small>(5.0)</small></span>
+              <a class="mt-product-card__title" href="{{ routes.all_products_collection_url }}">{{ fallback_title }}</a>
+              <div class="mt-price-row"><strong>{{ fallback_price | money }}</strong><s>{{ fallback_price | plus: 50000 | money }}</s></div>
+              <div class="mt-variant-dots" aria-label="Available colors"><span></span><span></span><span></span></div>
               <a class="mt-btn mt-btn--small mt-btn--primary mt-btn--full" href="{{ routes.all_products_collection_url }}">Shop now</a>
             </div>
           </article>
         {% endfor %}
-      {% endfor %}
+      {% endif %}
     </div>
   </div>
 </section>
