@@ -4,12 +4,35 @@
       <span class="mt-eyebrow">{{ section.settings.eyebrow }}</span>
       <h1>{{ section.settings.heading }}</h1>
       <p>{{ section.settings.subtext }}</p>
-      <div class="mt-love-message"><strong>{{ section.settings.love_heading }}</strong><small>{{ section.settings.love_text }}</small></div>
-      <div class="mt-hero-actions"><a class="mt-btn mt-btn--primary" href="{{ section.settings.primary_link | default: routes.all_products_collection_url }}">{{ section.settings.primary_label }}</a><a class="mt-btn mt-btn--secondary" href="{{ section.settings.secondary_link | default: routes.collections_url }}">{{ section.settings.secondary_label }}</a></div>
-      <div class="mt-trust-pills"><span>Soft Fabrics</span><span>Pet-Safe Products</span><span>Easy Returns</span></div>
+      <div class="mt-love-message">
+        <strong>{{ section.settings.love_heading }}</strong>
+        <small>{{ section.settings.love_text }}</small>
+      </div>
+      <div class="mt-hero-actions">
+        <a class="mt-btn mt-btn--primary" href="{{ section.settings.primary_link | default: routes.all_products_collection_url }}">{{ section.settings.primary_label }}</a>
+        <a class="mt-btn mt-btn--secondary" href="{{ section.settings.secondary_link | default: routes.collections_url }}">{{ section.settings.secondary_label }}</a>
+      </div>
+      <div class="mt-trust-pills" aria-label="Store benefits">
+        <span>{{ section.settings.trust_badge_1 }}</span>
+        <span>{{ section.settings.trust_badge_2 }}</span>
+        <span>{{ section.settings.trust_badge_3 }}</span>
+      </div>
     </div>
-    <div class="mt-hero-slider" data-hero-slider>
-      {% for block in section.blocks %}<div class="mt-hero-slide {% if forloop.first %}is-active{% endif %}" data-hero-slide {{ block.shopify_attributes }}>{% if block.settings.image %}{{ block.settings.image | image_url: width: 1400 | image_tag: loading: 'eager', alt: block.settings.alt }}{% else %}{{ 'lifestyle-1' | placeholder_svg_tag: 'mt-placeholder' }}{% endif %}</div>{% endfor %}
+    <div class="mt-hero-slider" data-hero-slider aria-label="Pet lifestyle gallery">
+      {% for block in section.blocks %}
+        <div class="mt-hero-slide {% if forloop.first %}is-active{% endif %}" data-hero-slide {{ block.shopify_attributes }}>
+          {% if block.settings.image %}
+            {{ block.settings.image | image_url: width: 1400 | image_tag: loading: 'eager', widths: '600, 900, 1200, 1400', sizes: '(min-width: 760px) 55vw, 100vw', alt: block.settings.alt }}
+          {% else %}
+            {% case forloop.index %}
+              {% when 1 %}<img src="{{ 'mt-photo-hero-lifestyle.jpg' | asset_url }}" width="1672" height="941" alt="Dog and pet parent enjoying a premium lifestyle" loading="eager">
+              {% when 2 %}<img src="{{ 'mt-photo-cats.jpg' | asset_url }}" width="1200" height="900" alt="Cat wearing a premium accessory" loading="lazy">
+              {% when 3 %}<img src="{{ 'mt-photo-cozy-beds.jpg' | asset_url }}" width="1200" height="900" alt="Dog resting on a comfortable pet bed" loading="lazy">
+              {% else %}<img src="{{ 'mt-photo-toys-play.jpg' | asset_url }}" width="1200" height="900" alt="Pet enjoying playtime with a toy" loading="lazy">
+            {% endcase %}
+          {% endif %}
+        </div>
+      {% endfor %}
       <div class="mt-floating-note"><strong>{{ section.settings.slider_note }}</strong><span>{{ section.settings.slider_subnote }}</span></div>
     </div>
   </div>
@@ -28,10 +51,18 @@
     { "type": "url", "id": "primary_link", "label": "Primary link" },
     { "type": "text", "id": "secondary_label", "label": "Secondary button", "default": "Explore Collections" },
     { "type": "url", "id": "secondary_link", "label": "Secondary link" },
+    { "type": "text", "id": "trust_badge_1", "label": "Trust badge 1", "default": "Soft Fabrics" },
+    { "type": "text", "id": "trust_badge_2", "label": "Trust badge 2", "default": "Pet-Safe Products" },
+    { "type": "text", "id": "trust_badge_3", "label": "Trust badge 3", "default": "Easy Returns" },
     { "type": "text", "id": "slider_note", "label": "Slider note", "default": "Comfort looks good on them" },
     { "type": "text", "id": "slider_subnote", "label": "Slider supporting note", "default": "Made for walks, naps and everything between" }
   ],
-  "blocks": [{ "type": "slide", "name": "Lifestyle slide", "settings": [{ "type": "image_picker", "id": "image", "label": "Image" }, { "type": "text", "id": "alt", "label": "Alt text", "default": "Premium pet lifestyle" }] }],
-  "presets": [{ "name": "Premium Hero", "blocks": [{ "type": "slide" }, { "type": "slide" }, { "type": "slide" }] }]
+  "blocks": [
+    { "type": "slide", "name": "Lifestyle slide", "limit": 5, "settings": [
+      { "type": "image_picker", "id": "image", "label": "Image" },
+      { "type": "text", "id": "alt", "label": "Alt text", "default": "Premium pet lifestyle" }
+    ] }
+  ],
+  "presets": [{ "name": "Premium Hero", "blocks": [{ "type": "slide" }, { "type": "slide" }, { "type": "slide" }, { "type": "slide" }] }]
 }
 {% endschema %}
