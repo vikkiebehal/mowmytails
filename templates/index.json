@@ -1,10 +1,194 @@
 {
   "sections": {
-    "main": {
-      "type": "mowmy-home"
+    "header": {
+      "type": "mowmy-header"
+    },
+    "hero": {
+      "type": "mowmy-hero"
+    },
+    "categories": {
+      "type": "mowmy-shop-categories",
+      "blocks": {
+        "walk": {
+          "type": "category",
+          "settings": {
+            "title": "Walk Essentials",
+            "link": "/collections/walk-essentials",
+            "alt": "Golden retriever wearing a green walking harness outdoors"
+          }
+        },
+        "apparel": {
+          "type": "category",
+          "settings": {
+            "title": "Pet Apparel",
+            "link": "/collections/pet-apparel",
+            "alt": "Small dog wearing a premium green sweater at home"
+          }
+        },
+        "beds": {
+          "type": "category",
+          "settings": {
+            "title": "Cozy Beds",
+            "link": "/collections/cozy-beds",
+            "alt": "Golden retriever sleeping on a soft cozy pet bed"
+          }
+        },
+        "toys": {
+          "type": "category",
+          "settings": {
+            "title": "Toys & Play",
+            "link": "/collections/toys-play",
+            "alt": "Puppy playing with a soft plush toy"
+          }
+        },
+        "bowls": {
+          "type": "category",
+          "settings": {
+            "title": "Bowls & Feeders",
+            "link": "/collections/bowls-feeders",
+            "alt": "Golden retriever eating from premium green pet bowls"
+          }
+        },
+        "grooming": {
+          "type": "category",
+          "settings": {
+            "title": "Grooming Picks",
+            "link": "/collections/grooming-picks",
+            "alt": "Golden retriever being gently groomed at home"
+          }
+        }
+      },
+      "block_order": [
+        "walk",
+        "apparel",
+        "beds",
+        "toys",
+        "bowls",
+        "grooming"
+      ]
+    },
+    "loved": {
+      "type": "mowmy-loved-products"
+    },
+    "trust": {
+      "type": "mowmy-trust-strip",
+      "blocks": {
+        "safe": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "\ud83c\udf3f",
+            "title": "Pet-safe Materials",
+            "text": "Soft, safe and everyday-ready."
+          }
+        },
+        "fit": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "\ud83d\udccf",
+            "title": "Comfort-first Fit",
+            "text": "Made for movement and rest."
+          }
+        },
+        "returns": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "\u21a9",
+            "title": "Easy Returns",
+            "text": "Simple support if fit is not right."
+          }
+        },
+        "shipping": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "\ud83d\ude9a",
+            "title": "Fast Shipping",
+            "text": "Reliable delivery across India."
+          }
+        }
+      },
+      "block_order": [
+        "safe",
+        "fit",
+        "returns",
+        "shipping"
+      ]
+    },
+    "story": {
+      "type": "mowmy-story"
+    },
+    "shop_by_pet": {
+      "type": "mowmy-shop-by-pet",
+      "blocks": {
+        "dogs": {
+          "type": "pet_card",
+          "settings": {
+            "title": "Shop for Dogs",
+            "text": "Walk, wear, sleep",
+            "link": "/collections/dogs",
+            "alt": "Golden retriever portrait for dog shopping category"
+          }
+        },
+        "cats": {
+          "type": "pet_card",
+          "settings": {
+            "title": "Shop for Cats",
+            "text": "Soft styles & essentials",
+            "link": "/collections/cats",
+            "alt": "Tabby cat wearing a premium collar"
+          }
+        },
+        "small": {
+          "type": "pet_card",
+          "settings": {
+            "title": "Small Pets",
+            "text": "XS\u2013S comfort picks",
+            "link": "/collections/small-pets",
+            "alt": "Small dog wearing premium pet apparel"
+          }
+        },
+        "medium": {
+          "type": "pet_card",
+          "settings": {
+            "title": "Medium Pets",
+            "text": "Balanced daily fits",
+            "link": "/collections/medium-pets",
+            "alt": "Medium dog wearing walking essentials"
+          }
+        },
+        "large": {
+          "type": "pet_card",
+          "settings": {
+            "title": "Large Pets",
+            "text": "Stronger everyday gear",
+            "link": "/collections/large-pets",
+            "alt": "Large golden retriever with premium pet accessories"
+          }
+        }
+      },
+      "block_order": [
+        "dogs",
+        "cats",
+        "small",
+        "medium",
+        "large"
+      ]
+    },
+    "newsletter": {
+      "type": "mowmy-newsletter"
+    },
+    "footer": {
+      "type": "mowmy-footer"
     }
   },
   "order": [
-    "main"
+    "header",
+    "hero",
+    "categories",
+    "loved",
+    "trust",
+    "story",
+    "shop_by_pet",
+    "newsletter",
+    "footer"
   ]
 }
