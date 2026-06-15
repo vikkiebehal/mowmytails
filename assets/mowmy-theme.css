@@ -777,47 +777,4 @@ h1, h2, h3 { font-family: var(--mt-serif); letter-spacing: -.045em; font-weight:
   .mt-petilio-hero .mt-hero-slide img {
     height: 100%;
   }
-  /* Made in India badge on every hero slider image */
-.mt-petilio-hero .mt-hero-slide-badge {
-  position: absolute;
-  top: 22px;
-  right: 22px;
-  z-index: 6;
-  width: 118px;
-  max-width: 28%;
-  pointer-events: none;
-  filter: drop-shadow(0 10px 22px rgba(23, 72, 63, .18));
-}
-
-.mt-petilio-hero .mt-hero-slide-badge img {
-  display: block;
-  width: 100%;
-  height: auto !important;
-  object-fit: contain !important;
-  object-position: center !important;
-}
-
-.mt-petilio-hero .mt-hero-slider::after {
-  z-index: 2;
-}
-
-.mt-petilio-hero .mt-slider-dots {
-  z-index: 7;
-}
-
-@media (max-width: 989px) {
-  .mt-petilio-hero .mt-hero-slide-badge {
-    top: 18px;
-    right: 18px;
-    width: 96px;
-  }
-}
-
-@media (max-width: 640px) {
-  .mt-petilio-hero .mt-hero-slide-badge {
-    top: 14px;
-    right: 14px;
-    width: 74px;
-  }
-}
 }
