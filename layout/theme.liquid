@@ -1,5 +1,18 @@
 <!doctype html>
-<html>
-<head>{{ content_for_header }}{{ 'mowmy-theme.css' | asset_url | stylesheet_tag }}</head>
-<body><main>{{ content_for_layout }}</main></body>
+<html lang="{{ request.locale.iso_code | default: 'en' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{ page_title }}{% unless page_title contains shop.name %} – {{ shop.name }}{% endunless %}</title>
+    {% if page_description %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
+    {{ content_for_header }}
+    {{ 'mowmy-theme.css' | asset_url | stylesheet_tag }}
+  </head>
+  <body>
+    <a class="mt-skip-link" href="#MainContent">Skip to content</a>
+    <main id="MainContent" role="main">
+      {{ content_for_layout }}
+    </main>
+    {{ 'mowmy-theme.js' | asset_url | script_tag }}
+  </body>
 </html>

@@ -1,3 +1,32 @@
 [
-{"name":"theme_info","theme_name":"Mowmy Tails Animated","theme_author":"Noted Ad Digital","theme_version":"1.0.0"}
+  {
+    "name": "theme_info",
+    "theme_name": "Mowmy Tails Premium UI",
+    "theme_author": "Noted Ad Digital",
+    "theme_version": "2.0.0",
+    "theme_documentation_url": "https://shopify.dev/docs/themes"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "mt_primary",
+        "label": "Primary",
+        "default": "#1F3B2D"
+      },
+      {
+        "type": "color",
+        "id": "mt_secondary",
+        "label": "Secondary",
+        "default": "#F3E8D5"
+      },
+      {
+        "type": "color",
+        "id": "mt_accent",
+        "label": "Accent",
+        "default": "#C96F4A"
+      }
+    ]
+  }
 ]

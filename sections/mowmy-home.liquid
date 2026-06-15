@@ -1,21 +1,277 @@
-<section class='mt-hero'>
-  <div class='mt-page mt-hero-grid'>
-    <div class='mt-hero-copy'>
-      <span class='mt-kicker'>🐾 New season styles for happy pets</span>
-      <h1 class='mt-serif'>Tiny Tails.<br><span>Big Style.</span></h1>
-      <p>Thoughtfully designed accessories, apparel and essentials for pets who deserve the best.</p>
-      <div class='mt-hero-actions'><a class='mt-btn mt-btn-teal' href='/collections/all'>SHOP NOW ›</a><a class='mt-btn mt-btn-outline' href='/collections'>EXPLORE COLLECTIONS</a></div>
+{% liquid
+  assign bestseller_collection = collections[section.settings.bestseller_collection]
+%}
+
+<header class="mt-site-header" role="banner">
+  <div class="mt-page mt-header-inner">
+    <a href="{{ routes.root_url }}" class="mt-brand" aria-label="{{ shop.name }}">
+      <span class="mt-brand-mark" aria-hidden="true">M</span>
+      <span class="mt-brand-text">
+        <strong>Mowmy Tails</strong>
+        <span>Premium pet lifestyle</span>
+      </span>
+    </a>
+
+    <nav class="mt-nav" aria-label="Primary navigation">
+      <a href="/collections/all">Shop</a>
+      <a href="/collections/new-arrivals">New Arrivals</a>
+      <a href="/collections/best-sellers">Best Sellers</a>
+      <a href="/collections/pet-apparel">Apparel</a>
+      <a href="/pages/size-guide">Size Guide</a>
+    </nav>
+
+    <div class="mt-header-actions">
+      <a class="mt-icon-link" href="{{ routes.search_url }}" aria-label="Search">
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m16.5 16.5 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </a>
+      <a class="mt-icon-link mt-account" href="{{ routes.account_url }}" aria-label="Account">
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4.5 21c1.5-4.3 4-6.4 7.5-6.4s6 2.1 7.5 6.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </a>
+      <a class="mt-icon-link" href="{{ routes.cart_url }}" aria-label="Cart">
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 8h12l-1 13H7L6 8Z" stroke="currentColor" stroke-width="2"/><path d="M9 8a3 3 0 0 1 6 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        {% if cart.item_count > 0 %}<span class="mt-cart-count">{{ cart.item_count }}</span>{% endif %}
+      </a>
+      <button class="mt-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-mt-menu-toggle>
+        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
     </div>
-    <div class='mt-visual'>
-      <div class='mt-blob'></div><div class='mt-dots'></div><div class='mt-heart'>♡</div>
-      <div class='mt-pets'><div class='mt-pet'><div class='mt-face'>🐶</div><div class='mt-band'>LICK YOU</div></div><div class='mt-pet cat'><div class='mt-face'>🐱</div><div class='mt-band'>MOWMY</div></div><div class='mt-pet shepherd'><div class='mt-face'>🐕</div><div class='mt-band'>BRAVE</div></div></div>
+  </div>
+
+  <nav class="mt-mobile-drawer" aria-label="Mobile navigation" data-mt-mobile-drawer>
+    <a href="/collections/all">Shop All</a>
+    <a href="/collections/new-arrivals">New Arrivals</a>
+    <a href="/collections/best-sellers">Best Sellers</a>
+    <a href="/collections/pet-apparel">Pet Apparel</a>
+    <a href="/pages/size-guide">Size Guide</a>
+    <a href="/pages/contact">Contact</a>
+  </nav>
+</header>
+
+<section class="mt-hero">
+  <div class="mt-page mt-hero-grid">
+    <div class="mt-hero-copy">
+      <span class="mt-kicker">Comfort, style & care for everyday routines</span>
+      <h1 class="mt-serif">Style Your Pet’s Everyday Comfort</h1>
+      <p>Premium essentials for walks, naps, playtime & cuddles.</p>
+      <div class="mt-hero-actions">
+        <a class="mt-btn mt-btn--primary" href="/collections/new-arrivals">Shop New Arrivals</a>
+        <a class="mt-btn mt-btn--secondary" href="/collections/best-sellers">Explore Best Sellers</a>
+      </div>
+    </div>
+
+    <div class="mt-hero-media" aria-label="Stylish pets wearing Mowmy Tails essentials">
+      {% if section.settings.hero_image != blank %}
+        {{ section.settings.hero_image | image_url: width: 1400 | image_tag: class: 'mt-hero-image', loading: 'eager', alt: 'Mowmy Tails premium pet essentials lifestyle image' }}
+        <div class="mt-hero-overlay"></div>
+      {% else %}
+        <div class="mt-hero-illustration" aria-hidden="true">
+          <div class="mt-pet-scene">
+            <div class="mt-pet-card mt-pet-dog"><span class="mt-pet-face">🐶</span><span class="mt-pet-band">DAILY WALKS</span></div>
+            <div class="mt-pet-card mt-pet-cat"><span class="mt-pet-face">🐱</span><span class="mt-pet-band">COZY FIT</span></div>
+            <div class="mt-pet-card mt-pet-large"><span class="mt-pet-face">🐕</span><span class="mt-pet-band">COMFORT</span></div>
+          </div>
+        </div>
+      {% endif %}
+      <div class="mt-hero-badge">
+        <strong>Pet-safe. Comfort-first.</strong>
+        <span>Designed for Indian homes, walks and weather.</span>
+      </div>
     </div>
   </div>
 </section>
-<section class='mt-section'><div class='mt-page'><div class='mt-section-head'><h2 class='mt-title mt-serif'><span class='mark'>✤</span> Shop by Collection</h2></div><div class='mt-collections'><a class='mt-collection' href='/collections/all'><h3 class='mt-serif'>Summer<br>Fits</h3><span>SHOP NOW ›</span><div class='emoji'>🌴</div></a><a class='mt-collection' href='/collections/all'><h3 class='mt-serif'>Harness<br>Sets</h3><span>SHOP NOW ›</span><div class='emoji'>🦮</div></a><a class='mt-collection' href='/collections/all'><h3 class='mt-serif'>Cozy<br>Corners</h3><span>SHOP NOW ›</span><div class='emoji'>🛏️</div></a><a class='mt-collection' href='/collections/all'><h3 class='mt-serif'>Twinning<br>Looks</h3><span>SHOP NOW ›</span><div class='emoji'>💜</div></a></div></div></section>
-<section class='mt-section'><div class='mt-page'><div class='mt-section-head'><h2 class='mt-title mt-serif'>Bestsellers ♡</h2><a class='mt-view' href='/collections/all'>VIEW ALL PRODUCTS ›</a></div><div class='mt-products'>{% assign featured_collection = collections[section.settings.collection] %}{% if featured_collection != blank and featured_collection.products_count > 0 %}{% for product in featured_collection.products limit: 4 %}<a class='mt-product' href='{{ product.url }}'><div class='mt-product-emoji'>{% if product.featured_image %}{{ product.featured_image | image_url: width: 340 | image_tag: loading: 'lazy', alt: product.title }}{% else %}🐾{% endif %}</div><h3>{{ product.title }}</h3><div class='mt-price'>{{ product.price | money }}{% if product.compare_at_price > product.price %}<s>{{ product.compare_at_price | money }}</s>{% endif %}</div><div class='mt-stars'>★★★★★</div><span class='mt-add'>Add to Cart</span></a>{% endfor %}{% else %}<div class='mt-product'><div class='mt-product-emoji'>🎽</div><h3>Aqua Adventure Harness Set</h3><div class='mt-price'>₹1,899 <s>₹2,499</s></div><div class='mt-stars'>★★★★★</div><span class='mt-add'>Add to Cart</span></div><div class='mt-product'><div class='mt-product-emoji'>🔷</div><h3>Lick You Bandana</h3><div class='mt-price'>₹499 <s>₹699</s></div><div class='mt-stars'>★★★★★</div><span class='mt-add'>Add to Cart</span></div><div class='mt-product'><div class='mt-product-emoji'>🩷</div><h3>Pretty in Pink Leash</h3><div class='mt-price'>₹899 <s>₹1,199</s></div><div class='mt-stars'>★★★★★</div><span class='mt-add'>Add to Cart</span></div><div class='mt-product'><div class='mt-product-emoji'>☁️</div><h3>Lilac Cloud Donut Bed</h3><div class='mt-price'>₹1,799 <s>₹2,299</s></div><div class='mt-stars'>★★★★★</div><span class='mt-add'>Add to Cart</span></div>{% endif %}</div></div></section>
-<section class='mt-section'><div class='mt-page'><div class='mt-section-head'><h2 class='mt-title mt-serif'>Seen on Happy Tails.</h2><a class='mt-view' href='/'>FOLLOW @MOWMYTAILS</a></div><div class='mt-ugc'><div class='mt-ugc-card'>🐶</div><div class='mt-ugc-card'>🐱</div><div class='mt-ugc-card'>🦮</div><div class='mt-ugc-card'>🎽</div><div class='mt-ugc-card'>💜</div><div class='mt-ugc-card'>🛏️</div><div class='mt-ugc-card'>🌴</div><div class='mt-ugc-card'>🐾</div></div></div></section>
-<section class='mt-page'><div class='mt-promise'><div class='mt-promise-item'><div class='mt-icon'>🛡️</div><div><h3>Premium Quality</h3><p>Thoughtfully sourced, built to last.</p></div></div><div class='mt-promise-item'><div class='mt-icon'>🌿</div><div><h3>Pet-Safe Materials</h3><p>Non-toxic, durable and completely safe.</p></div></div><div class='mt-promise-item'><div class='mt-icon'>🚚</div><div><h3>Fast & Reliable</h3><p>Quick deliveries across India.</p></div></div><div class='mt-promise-item'><div class='mt-icon'>💗</div><div><h3>Made with Love</h3><p>Because every tail deserves the best.</p></div></div></div></section>
+
+<section class="mt-section mt-reveal">
+  <div class="mt-page">
+    <div class="mt-section-head">
+      <span class="mt-eyebrow">Shop by category</span>
+      <h2 class="mt-title mt-serif">Essentials for every little routine</h2>
+    </div>
+    <div class="mt-category-grid">
+      {% assign categories = "Walk Essentials|Pet Apparel|Cozy Beds|Toys & Play|Bowls & Feeders|Grooming Picks" | split: "|" %}
+      {% assign icons = "🦮|🧥|🛏️|🎾|🥣|🫧" | split: "|" %}
+      {% assign links = "/collections/walk-essentials|/collections/pet-apparel|/collections/cozy-beds|/collections/toys-play|/collections/bowls-feeders|/collections/grooming-picks" | split: "|" %}
+      {% for category in categories %}
+        <a class="mt-category-card" href="{{ links[forloop.index0] }}" aria-label="Shop {{ category }}">
+          <span class="mt-card-icon" aria-hidden="true">{{ icons[forloop.index0] }}</span>
+          <div>
+            <h3 class="mt-serif">{{ category }}</h3>
+            <span>Shop collection</span>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="mt-section mt-reveal">
+  <div class="mt-page">
+    <div class="mt-section-head mt-section-head--split">
+      <div>
+        <span class="mt-eyebrow">Best sellers</span>
+        <h2 class="mt-title mt-serif">Loved by Pet Parents</h2>
+        <p class="mt-subtitle">Our most-picked essentials for everyday comfort.</p>
+      </div>
+      <a class="mt-btn mt-btn--secondary mt-btn--small" href="/collections/best-sellers">View All</a>
+    </div>
+
+    <div class="mt-product-grid">
+      {% if bestseller_collection != blank and bestseller_collection.products_count > 0 %}
+        {% for product in bestseller_collection.products limit: 4 %}
+          <article class="mt-product-card">
+            {% if forloop.index == 1 %}<span class="mt-badge">Best Seller</span>{% elsif forloop.index == 2 %}<span class="mt-badge">New</span>{% elsif forloop.index == 3 %}<span class="mt-badge">Daily Walks</span>{% endif %}
+            <a class="mt-product-media" href="{{ product.url }}" aria-label="{{ product.title | escape }}">
+              {% if product.featured_image %}
+                {{ product.featured_image | image_url: width: 640 | image_tag: loading: 'lazy', alt: product.title }}
+              {% else %}
+                <span class="mt-product-placeholder" aria-hidden="true">🐾</span>
+              {% endif %}
+            </a>
+            <div class="mt-product-info">
+              <a class="mt-product-title" href="{{ product.url }}">{{ product.title }}</a>
+              <div class="mt-product-meta">
+                <span class="mt-price">{{ product.price | money }}</span>
+                <span class="mt-rating" aria-label="Rated five stars">★★★★★</span>
+              </div>
+              {% if product.available %}
+                {% form 'product', product %}
+                  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                  <button class="mt-quick-add" type="submit">Quick Add</button>
+                {% endform %}
+              {% else %}
+                <button class="mt-quick-add" type="button" disabled>Sold Out</button>
+              {% endif %}
+            </div>
+          </article>
+        {% endfor %}
+      {% else %}
+        {% assign demo_titles = "Everyday Comfort Harness|Soft Knit Pet Tee|Cloud Nap Bed|Natural Play Rope" | split: "|" %}
+        {% assign demo_prices = "₹1,299|₹799|₹1,899|₹399" | split: "|" %}
+        {% assign demo_badges = "Best Seller|New|Cozy Pick|Daily Play" | split: "|" %}
+        {% assign demo_icons = "🦮|🧥|🛏️|🎾" | split: "|" %}
+        {% for title in demo_titles %}
+          <article class="mt-product-card">
+            <span class="mt-badge">{{ demo_badges[forloop.index0] }}</span>
+            <a class="mt-product-media" href="/collections/all" aria-label="{{ title }}">
+              <span class="mt-product-placeholder" aria-hidden="true">{{ demo_icons[forloop.index0] }}</span>
+            </a>
+            <div class="mt-product-info">
+              <a class="mt-product-title" href="/collections/all">{{ title }}</a>
+              <div class="mt-product-meta">
+                <span class="mt-price">{{ demo_prices[forloop.index0] }}</span>
+                <span class="mt-rating" aria-label="Rated five stars">★★★★★</span>
+              </div>
+              <a class="mt-quick-add" href="/collections/all">Shop Now</a>
+            </div>
+          </article>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="mt-section mt-reveal">
+  <div class="mt-page">
+    <div class="mt-trust-grid">
+      <div class="mt-trust-item"><span class="mt-trust-icon">🌿</span><h3>Pet-safe Materials</h3><p>Soft, safe and everyday-ready.</p></div>
+      <div class="mt-trust-item"><span class="mt-trust-icon">📏</span><h3>Comfort-first Fit</h3><p>Made for movement and rest.</p></div>
+      <div class="mt-trust-item"><span class="mt-trust-icon">↩</span><h3>Easy Returns</h3><p>Simple support if fit is not right.</p></div>
+      <div class="mt-trust-item"><span class="mt-trust-icon">🚚</span><h3>Fast Shipping</h3><p>Reliable delivery across India.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="mt-section mt-reveal">
+  <div class="mt-page">
+    <div class="mt-story">
+      <div class="mt-story-media">
+        {% if section.settings.story_image != blank %}
+          {{ section.settings.story_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: 'Pet parent lifestyle story by Mowmy Tails' }}
+        {% else %}
+          <span class="mt-story-placeholder" aria-hidden="true">🐾</span>
+        {% endif %}
+      </div>
+      <div class="mt-story-copy">
+        <span class="mt-eyebrow">Our story</span>
+        <h2 class="mt-title mt-serif">Made for pets who are family.</h2>
+        <p>From morning walks to cozy nap corners, Mowmy Tails brings comfort, style and care into every little routine.</p>
+        <a class="mt-btn mt-btn--primary" href="/pages/about-us">Our Story</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mt-section mt-reveal">
+  <div class="mt-page">
+    <div class="mt-section-head">
+      <span class="mt-eyebrow">Shop by pet & size</span>
+      <h2 class="mt-title mt-serif">Find the right fit faster</h2>
+    </div>
+    <div class="mt-pet-links">
+      <a class="mt-pet-link" href="/collections/dogs"><strong>Shop for Dogs</strong><span>Walk, wear, sleep</span></a>
+      <a class="mt-pet-link" href="/collections/cats"><strong>Shop for Cats</strong><span>Soft styles & essentials</span></a>
+      <a class="mt-pet-link" href="/collections/small-pets"><strong>Small Pets</strong><span>XS–S comfort picks</span></a>
+      <a class="mt-pet-link" href="/collections/medium-pets"><strong>Medium Pets</strong><span>Balanced daily fits</span></a>
+      <a class="mt-pet-link" href="/collections/large-pets"><strong>Large Pets</strong><span>Stronger everyday gear</span></a>
+      <a class="mt-pet-link" href="/pages/size-guide"><strong>Size Guide</strong><span>Measure before you buy</span></a>
+    </div>
+    <a class="mt-size-guide" href="/pages/size-guide">View apparel size guide →</a>
+  </div>
+</section>
+
+<section class="mt-section mt-reveal">
+  <div class="mt-page">
+    <div class="mt-newsletter">
+      <h2 class="mt-serif">Join the Mowmy Tails family</h2>
+      <p>Get new drops, fit tips and everyday care ideas for your pet.</p>
+      {% form 'customer', class: 'mt-newsletter-form' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <input type="email" name="contact[email]" aria-label="Email address" placeholder="Enter your email" required>
+        <button class="mt-btn" type="submit">Subscribe</button>
+      {% endform %}
+    </div>
+  </div>
+</section>
+
+<footer class="mt-footer">
+  <div class="mt-page mt-footer-grid">
+    <div class="mt-footer-brand">
+      <strong>Mowmy Tails</strong>
+      <p>Premium pet lifestyle essentials for walks, naps, playtime and cuddles.</p>
+    </div>
+    <nav class="mt-footer-links" aria-label="Footer navigation">
+      <a href="/collections/all">Shop</a>
+      <a href="/pages/about-us">About</a>
+      <a href="/pages/size-guide">Size Guide</a>
+      <a href="/pages/contact">Contact</a>
+      <a href="/policies/shipping-policy">Shipping</a>
+    </nav>
+  </div>
+</footer>
+
 {% schema %}
-{"name":"Mowmy Animated Home","settings":[{"type":"collection","id":"collection","label":"Bestseller collection"}],"presets":[{"name":"Mowmy Animated Home"}]}
+{
+  "name": "Mowmy Premium Home",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "bestseller_collection",
+      "label": "Best seller collection"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero lifestyle image"
+    },
+    {
+      "type": "image_picker",
+      "id": "story_image",
+      "label": "Story image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mowmy Premium Home"
+    }
+  ]
+}
 {% endschema %}

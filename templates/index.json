@@ -4,5 +4,7 @@
       "type": "mowmy-home"
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }
