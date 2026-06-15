@@ -693,6 +693,15 @@ h1, h2, h3 { font-family: var(--mt-serif); letter-spacing: -.045em; font-weight:
   background: #ff6f7d;
 }
 
+.mt-petilio-hero .mt-hero-made-in-india {
+  position: absolute;
+  z-index: 4;
+  top: 18px;
+  right: 18px;
+  width: 96px;
+  height: 96px;
+}
+
 @media (max-width: 989px) {
   .mt-petilio-hero .mt-hero-slider {
     min-height: 420px;
@@ -709,6 +718,12 @@ h1, h2, h3 { font-family: var(--mt-serif); letter-spacing: -.045em; font-weight:
   .mt-petilio-hero .mt-slider-dots {
     right: 18px;
     bottom: 16px;
+  }
+  .mt-petilio-hero .mt-hero-made-in-india {
+    top: 12px;
+    right: 12px;
+    width: 72px;
+    height: 72px;
   }
 }
 
