@@ -1,0 +1,61 @@
+<section class="mt-section mt-reveal">
+  <div class="mt-page">
+    <div class="mt-section-head">
+      <span class="mt-eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2 class="mt-title">{{ section.settings.heading }}</h2>
+      {% if section.settings.subtext != blank %}<p class="mt-subtitle">{{ section.settings.subtext }}</p>{% endif %}
+    </div>
+    <div class="mt-category-grid">
+      {% for block in section.blocks %}
+        <a class="mt-category-card" href="{{ block.settings.link | default: routes.all_products_collection_url }}" aria-label="Shop {{ block.settings.title }}" {{ block.shopify_attributes }}>
+          {% if block.settings.image %}
+            {{ block.settings.image | image_url: width: 700 | image_tag: class: 'mt-category-image', loading: 'lazy', alt: block.settings.alt }}
+          {% else %}
+            {% case forloop.index %}
+              {% when 1 %}<img class="mt-category-image" src="{{ 'mt-photo-pet-apparel.jpg' | asset_url }}" width="1200" height="900" alt="{{ block.settings.alt }}" loading="lazy">
+              {% when 2 %}<img class="mt-category-image" src="{{ 'mt-photo-cats.jpg' | asset_url }}" width="1200" height="900" alt="{{ block.settings.alt }}" loading="lazy">
+              {% when 3 %}<img class="mt-category-image" src="{{ 'mt-photo-walk-essentials.jpg' | asset_url }}" width="1200" height="900" alt="{{ block.settings.alt }}" loading="lazy">
+              {% when 4 %}<img class="mt-category-image" src="{{ 'mt-photo-cozy-beds.jpg' | asset_url }}" width="1200" height="900" alt="{{ block.settings.alt }}" loading="lazy">
+              {% when 5 %}<img class="mt-category-image" src="{{ 'mt-photo-toys-play.jpg' | asset_url }}" width="1200" height="900" alt="{{ block.settings.alt }}" loading="lazy">
+              {% else %}<img class="mt-category-image" src="{{ 'mt-photo-grooming-picks.jpg' | asset_url }}" width="1200" height="900" alt="{{ block.settings.alt }}" loading="lazy">
+            {% endcase %}
+          {% endif %}
+          <div class="mt-category-content">
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.text }}</p>
+            <span>{{ block.settings.cta }}</span>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Shop by Category",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Shop by category" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Made for Every Little Routine" },
+    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "From morning walks to afternoon naps, find the right essentials for the moments that matter." }
+  ],
+  "blocks": [
+    { "type": "category", "name": "Category card", "settings": [
+      { "type": "text", "id": "title", "label": "Title", "default": "Dog Apparel" },
+      { "type": "textarea", "id": "text", "label": "Short line", "default": "Comfortable style for every season." },
+      { "type": "text", "id": "cta", "label": "CTA", "default": "Shop collection" },
+      { "type": "url", "id": "link", "label": "Link" },
+      { "type": "image_picker", "id": "image", "label": "Image" },
+      { "type": "text", "id": "alt", "label": "Alt text", "default": "Premium pet lifestyle category" }
+    ] }
+  ],
+  "presets": [{ "name": "Shop by Category", "blocks": [
+    { "type": "category", "settings": { "title": "Dog Apparel" } },
+    { "type": "category", "settings": { "title": "Cat Essentials" } },
+    { "type": "category", "settings": { "title": "Harness & Leash" } },
+    { "type": "category", "settings": { "title": "Pet Beds" } },
+    { "type": "category", "settings": { "title": "Toys" } },
+    { "type": "category", "settings": { "title": "Grooming" } }
+  ] }]
+}
+{% endschema %}
