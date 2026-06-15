@@ -3,7 +3,7 @@ Renders a homepage product collection grid.
 @param {section} section - The parent section and its settings
 {% enddoc %}
 
-<section class="mt-section {% if section.settings.soft_background %}mt-section--soft{% endif %}">
+<section class="mt-section mt-products-section {% if section.settings.soft_background %}mt-section--soft{% endif %}">
   <div class="mt-page">
     <div class="mt-section-head mt-section-head--split">
       <div>
@@ -13,16 +13,17 @@ Renders a homepage product collection grid.
       </div>
       {% if section.settings.collection %}<a class="mt-btn mt-btn--secondary" href="{{ section.settings.collection.url }}">View all</a>{% endif %}
     </div>
+
     <div class="mt-product-grid">
       {% for product in section.settings.collection.products limit: section.settings.limit %}
         {% render 'product-card', product: product, show_rating: true %}
       {% else %}
         {% for i in (1..4) %}
-          <article class="mt-product-card">
+          <article class="mt-product-card mt-reveal">
             <div class="mt-product-card__media">{{ 'product-' | append: i | placeholder_svg_tag: 'mt-placeholder' }}</div>
             <div class="mt-product-card__body">
-              <span class="mt-stars">★★★★★</span>
-              <strong>Premium pet essential</strong>
+              <span class="mt-stars">★★★★★ <small>(5.0)</small></span>
+              <strong class="mt-product-card__title">Premium pet essential</strong>
               <div class="mt-price-row"><strong>{{ 129900 | money }}</strong></div>
               <a class="mt-btn mt-btn--small mt-btn--primary mt-btn--full" href="{{ routes.all_products_collection_url }}">Shop now</a>
             </div>

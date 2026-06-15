@@ -1,16 +1,16 @@
 {% doc %}
-Renders a reusable product card with price and quick add.
+Renders a reusable premium product card with price and quick add.
 @param {product} product - Product to render
 @param {boolean} [show_rating] - Show decorative rating
 {% enddoc %}
 
 <article class="mt-product-card mt-reveal">
   <div class="mt-product-card__media">
-    {% if product.available == false %}<span class="mt-product-badge">Sold out</span>{% elsif product.compare_at_price > product.price %}<span class="mt-product-badge">Sale</span>{% endif %}
+    {% if product.available == false %}<span class="mt-product-badge">Sold out</span>{% elsif product.compare_at_price > product.price %}<span class="mt-product-badge">Sale</span>{% else %}<span class="mt-product-badge mt-product-badge--soft">New</span>{% endif %}
     <button class="mt-wishlist" type="button" aria-label="Save {{ product.title | escape }}">♡</button>
-    <a href="{{ product.url }}">
+    <a href="{{ product.url }}" aria-label="View {{ product.title | escape }}">
       {% if product.featured_image %}
-        {{ product.featured_image | image_url: width: 720 | image_tag: loading: 'lazy', widths: '320, 480, 720', sizes: '(min-width: 990px) 25vw, 50vw', alt: product.featured_image.alt | default: product.title }}
+        {{ product.featured_image | image_url: width: 820 | image_tag: loading: 'lazy', widths: '320, 480, 720, 820', sizes: '(min-width: 990px) 25vw, 50vw', alt: product.featured_image.alt | default: product.title }}
       {% else %}
         {{ 'product-1' | placeholder_svg_tag: 'mt-placeholder' }}
       {% endif %}
@@ -25,7 +25,7 @@ Renders a reusable product card with price and quick add.
     </div>
     {% if product.options_with_values.size > 0 %}
       <div class="mt-variant-dots" aria-label="Available options">
-        {% for value in product.options_with_values.first.values limit: 5 %}<span title="{{ value }}" style="--dot-color: {{ value | handle }}"></span>{% endfor %}
+        {% for value in product.options_with_values.first.values limit: 5 %}<span title="{{ value }}"></span>{% endfor %}
       </div>
     {% endif %}
     {% form 'product', product, class: 'mt-quick-form', data-ajax-cart-form: '' %}

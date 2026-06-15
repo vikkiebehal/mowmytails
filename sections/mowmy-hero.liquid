@@ -1,39 +1,70 @@
-<section class="mt-hero">
+<section class="mt-hero mt-petilio-hero">
+  <span class="mt-hero-blob mt-hero-blob--one" aria-hidden="true"></span>
+  <span class="mt-hero-blob mt-hero-blob--two" aria-hidden="true"></span>
+
   <div class="mt-page mt-hero-grid">
-    <div class="mt-hero-copy">
+    <div class="mt-hero-copy mt-reveal">
       <span class="mt-eyebrow">{{ section.settings.eyebrow }}</span>
       <h1>{{ section.settings.heading }}</h1>
       <p>{{ section.settings.subtext }}</p>
-      <div class="mt-love-message">
-        <strong>{{ section.settings.love_heading }}</strong>
-        <small>{{ section.settings.love_text }}</small>
+
+      <div class="mt-love-message" aria-label="Mowmy Tails giving message">
+        <span class="mt-love-message__icon" aria-hidden="true">♥</span>
+        <div>
+          <strong>{{ section.settings.love_heading }}</strong>
+          <small>{{ section.settings.love_text }}</small>
+        </div>
       </div>
+
       <div class="mt-hero-actions">
         <a class="mt-btn mt-btn--primary" href="{{ section.settings.primary_link | default: routes.all_products_collection_url }}">{{ section.settings.primary_label }}</a>
         <a class="mt-btn mt-btn--secondary" href="{{ section.settings.secondary_link | default: routes.collections_url }}">{{ section.settings.secondary_label }}</a>
       </div>
+
       <div class="mt-trust-pills" aria-label="Store benefits">
         <span>{{ section.settings.trust_badge_1 }}</span>
         <span>{{ section.settings.trust_badge_2 }}</span>
         <span>{{ section.settings.trust_badge_3 }}</span>
       </div>
     </div>
-    <div class="mt-hero-slider" data-hero-slider aria-label="Pet lifestyle gallery">
-      {% for block in section.blocks %}
-        <div class="mt-hero-slide {% if forloop.first %}is-active{% endif %}" data-hero-slide {{ block.shopify_attributes }}>
-          {% if block.settings.image %}
-            {{ block.settings.image | image_url: width: 1400 | image_tag: loading: 'eager', widths: '600, 900, 1200, 1400', sizes: '(min-width: 760px) 55vw, 100vw', alt: block.settings.alt }}
-          {% else %}
-            {% case forloop.index %}
-              {% when 1 %}<img src="{{ 'mt-photo-hero-lifestyle.jpg' | asset_url }}" width="1672" height="941" alt="Dog and pet parent enjoying a premium lifestyle" loading="eager">
-              {% when 2 %}<img src="{{ 'mt-photo-cats.jpg' | asset_url }}" width="1200" height="900" alt="Cat wearing a premium accessory" loading="lazy">
-              {% when 3 %}<img src="{{ 'mt-photo-cozy-beds.jpg' | asset_url }}" width="1200" height="900" alt="Dog resting on a comfortable pet bed" loading="lazy">
-              {% else %}<img src="{{ 'mt-photo-toys-play.jpg' | asset_url }}" width="1200" height="900" alt="Pet enjoying playtime with a toy" loading="lazy">
-            {% endcase %}
-          {% endif %}
+
+    <div class="mt-hero-visual mt-reveal">
+      <div class="mt-hero-slider" data-hero-slider aria-label="Pet lifestyle gallery">
+        {% for block in section.blocks %}
+          <div class="mt-hero-slide {% if forloop.first %}is-active{% endif %}" data-hero-slide {{ block.shopify_attributes }}>
+            {% if block.settings.image %}
+              {{ block.settings.image | image_url: width: 1600 | image_tag: loading: 'eager', widths: '600, 900, 1200, 1600', sizes: '(min-width: 990px) 54vw, 100vw', alt: block.settings.alt }}
+            {% else %}
+              {% case forloop.index %}
+                {% when 1 %}<img src="{{ 'mt-photo-hero-lifestyle.jpg' | asset_url }}" width="1672" height="941" alt="Dog and pet parent enjoying a premium lifestyle" loading="eager">
+                {% when 2 %}<img src="{{ 'mt-photo-cats.jpg' | asset_url }}" width="1200" height="900" alt="Cat wearing a premium accessory" loading="lazy">
+                {% when 3 %}<img src="{{ 'mt-photo-cozy-beds.jpg' | asset_url }}" width="1200" height="900" alt="Dog resting on a comfortable pet bed" loading="lazy">
+                {% else %}<img src="{{ 'mt-photo-toys-play.jpg' | asset_url }}" width="1200" height="900" alt="Pet enjoying playtime with a toy" loading="lazy">
+              {% endcase %}
+            {% endif %}
+          </div>
+        {% endfor %}
+
+        <div class="mt-slider-dots" aria-label="Hero slider controls">
+          {% for block in section.blocks %}
+            <button class="mt-slider-dot {% if forloop.first %}is-active{% endif %}" type="button" data-slide-dot aria-label="Show slide {{ forloop.index }}"></button>
+          {% endfor %}
         </div>
-      {% endfor %}
-      <div class="mt-floating-note"><strong>{{ section.settings.slider_note }}</strong><span>{{ section.settings.slider_subnote }}</span></div>
+
+        <div class="mt-floating-note">
+          <strong>{{ section.settings.slider_note }}</strong>
+          <span>{{ section.settings.slider_subnote }}</span>
+        </div>
+      </div>
+
+      <div class="mt-hero-mini-card mt-hero-mini-card--top">
+        <span>New drop</span>
+        <strong>Soft fits for happy walks</strong>
+      </div>
+      <div class="mt-hero-mini-card mt-hero-mini-card--bottom">
+        <span>Pet parent loved</span>
+        <strong>Comfort, care & style</strong>
+      </div>
     </div>
   </div>
 </section>

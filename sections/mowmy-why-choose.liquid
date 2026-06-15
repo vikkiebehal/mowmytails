@@ -3,15 +3,15 @@
     <div class="mt-section-head">
       <span class="mt-eyebrow">{{ section.settings.eyebrow }}</span>
       <h2 class="mt-title">{{ section.settings.heading }}</h2>
-      <p class="mt-subtitle">{{ section.settings.text }}</p>
+      <p class="mt-subtitle">{{ section.settings.subtext }}</p>
     </div>
     <div class="mt-trust-grid">
       {% for block in section.blocks %}
-        <article class="mt-trust-item" {{ block.shopify_attributes }}>
-          <span class="mt-trust-icon" aria-hidden="true">{{ block.settings.icon }}</span>
+        <div class="mt-trust-item" {{ block.shopify_attributes }}>
+          <div class="mt-trust-icon">{{ block.settings.icon }}</div>
           <h3>{{ block.settings.title }}</h3>
           <p>{{ block.settings.text }}</p>
-        </article>
+        </div>
       {% endfor %}
     </div>
   </div>
@@ -21,22 +21,22 @@
 {
   "name": "Why Choose Mowmy Tails",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Why Mowmy Tails" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Thoughtful Essentials, Happier Tails" },
-    { "type": "textarea", "id": "text", "label": "Text", "default": "Every piece is selected around comfort, safety, quality and dependable everyday use." }
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Why choose us" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Thoughtful Essentials for Everyday Care" },
+    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Comfort, safety and detail-led quality for pets who are family." }
   ],
   "blocks": [
     { "type": "benefit", "name": "Benefit", "settings": [
-      { "type": "text", "id": "icon", "label": "Icon or number", "default": "01" },
+      { "type": "text", "id": "icon", "label": "Number/Icon", "default": "01" },
       { "type": "text", "id": "title", "label": "Title", "default": "Pet-Safe Materials" },
       { "type": "textarea", "id": "text", "label": "Text", "default": "Thoughtful materials chosen for everyday life." }
     ] }
   ],
   "presets": [{ "name": "Why Choose Mowmy Tails", "blocks": [
     { "type": "benefit", "settings": { "icon": "01", "title": "Pet-Safe Materials" } },
-    { "type": "benefit", "settings": { "icon": "02", "title": "Comfortable Fit", "text": "Designed around movement, rest and play." } },
-    { "type": "benefit", "settings": { "icon": "03", "title": "Curated Quality", "text": "Dependable pieces with considered details." } },
-    { "type": "benefit", "settings": { "icon": "04", "title": "Fast Delivery", "text": "Carefully packed and reliably dispatched." } }
+    { "type": "benefit", "settings": { "icon": "02", "title": "Comfortable Fit" } },
+    { "type": "benefit", "settings": { "icon": "03", "title": "Curated Quality" } },
+    { "type": "benefit", "settings": { "icon": "04", "title": "Fast Delivery" } }
   ] }]
 }
 {% endschema %}

@@ -1,0 +1,18 @@
+<section class="mt-section mt-section--soft">
+  <div class="mt-page">
+    <div class="mt-newsletter" style="background:linear-gradient(135deg,#3F6F64,#5D8B7F)">
+      <span class="mt-eyebrow" style="color:#F5C542">404</span>
+      <h1>Oops, we couldn't find that page.</h1>
+      <p>Your pet's favorite picks are still waiting for you.</p>
+      <form action="{{ routes.search_url }}" method="get" role="search" class="mt-newsletter-form">
+        <input type="search" name="q" placeholder="Search pet essentials" aria-label="Search">
+        <button class="mt-btn mt-btn--primary" type="submit">Search</button>
+      </form>
+      <p style="margin-top:20px"><a class="mt-btn mt-btn--secondary" href="{{ routes.root_url }}">Back to Home</a></p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "404 page" }
+{% endschema %}
