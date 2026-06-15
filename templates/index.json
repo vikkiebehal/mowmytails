@@ -1,16 +1,94 @@
 {
   "sections": {
-    "hero": {"type": "mowmy-hero", "blocks": {"slide_1": {"type": "slide"}, "slide_2": {"type": "slide"}, "slide_3": {"type": "slide"}, "slide_4": {"type": "slide"}}, "block_order": ["slide_1", "slide_2", "slide_3", "slide_4"]},
-    "categories": {"type": "mowmy-shop-categories", "settings": {"eyebrow": "Shop by category", "heading": "Made for Every Little Routine", "subtext": "From morning walks to afternoon naps, find the right essentials for the moments that matter."}, "blocks": {"dogs": {"type": "category", "settings": {"title": "Dog Apparel", "cta": "Shop dog apparel", "link": "/collections/pet-apparel", "alt": "Dog wearing premium apparel"}}, "cats": {"type": "category", "settings": {"title": "Cat Essentials", "cta": "Shop cat essentials", "link": "/collections/cats", "alt": "Cat wearing a premium accessory"}}, "walk": {"type": "category", "settings": {"title": "Harness & Leash", "cta": "Get walk ready", "link": "/collections/walk-essentials", "alt": "Dog wearing a secure walking harness"}}, "beds": {"type": "category", "settings": {"title": "Pet Beds", "cta": "Shop cozy beds", "link": "/collections/beds", "alt": "Dog sleeping on a comfortable bed"}}, "toys": {"type": "category", "settings": {"title": "Toys", "cta": "Shop playtime", "link": "/collections/toys", "alt": "Pet playing with an enriching toy"}}, "grooming": {"type": "category", "settings": {"title": "Grooming", "cta": "Shop grooming", "link": "/collections/grooming", "alt": "Dog enjoying gentle grooming"}}}, "block_order": ["dogs", "cats", "walk", "beds", "toys", "grooming"]},
-    "best_sellers": {"type": "mowmy-product-collection", "settings": {"eyebrow": "Pet parent favorites", "heading": "Best Sellers", "text": "The pieces pets love and their humans recommend.", "limit": 4}},
-    "promos": {"type": "mowmy-promo-banners", "blocks": {"walk": {"type": "banner", "settings": {"title": "Walk Ready Essentials", "text": "Secure, comfortable gear for every adventure.", "label": "Shop walks", "link": "/collections/walk-essentials"}}, "beds": {"type": "banner", "settings": {"title": "Cozy Beds for Better Sleep", "text": "Soft support for serious snoozing.", "label": "Shop beds", "link": "/collections/beds"}}, "toys": {"type": "banner", "settings": {"title": "Toys That Keep Them Busy", "text": "Playful picks for curious minds.", "label": "Shop toys", "link": "/collections/toys"}}}, "block_order": ["walk", "beds", "toys"]},
-    "trust": {"type": "mowmy-trust-strip", "blocks": {"safe": {"type": "trust_item", "settings": {"icon": "01", "title": "Pet-Safe Materials", "text": "Thoughtful materials chosen for everyday life."}}, "fit": {"type": "trust_item", "settings": {"icon": "02", "title": "Comfortable Fit", "text": "Designed around movement, rest and play."}}, "quality": {"type": "trust_item", "settings": {"icon": "03", "title": "Curated Quality", "text": "Useful, dependable pieces with considered details."}}, "delivery": {"type": "trust_item", "settings": {"icon": "04", "title": "Fast Delivery", "text": "Carefully packed and reliably dispatched."}}}, "block_order": ["safe", "fit", "quality", "delivery"]},
-    "story": {"type": "mowmy-story", "settings": {"eyebrow": "The Mowmy Tails story", "heading": "Made for Pets Who Are Family", "body": "We believe the best pet products should feel good, work beautifully and fit naturally into the home you share. Every piece is chosen with comfort, style, care and love in mind.", "button_text": "Know Our Story", "link": "/pages/about", "image_alt": "Pet parent sharing a loving moment with their dog"}},
-    "new_arrivals": {"type": "mowmy-product-collection", "settings": {"eyebrow": "Freshly fetched", "heading": "New Arrivals", "text": "New comfort, color and joy for their everyday routine.", "limit": 4, "soft_background": true}},
-    "size_guide": {"type": "mowmy-size-guide"},
-    "testimonials": {"type": "mowmy-testimonials", "blocks": {"one": {"type": "review", "settings": {"review": "The quality feels beautiful and the fit was perfect from the first walk.", "name": "Aarushi", "pet": "Milo"}}, "two": {"type": "review", "settings": {"review": "Our cat actually chose this bed over the sofa. It looks lovely in our home too.", "name": "Naina", "pet": "Miso"}}, "three": {"type": "review", "settings": {"review": "Thoughtful packaging, fast delivery and a harness that feels secure without being bulky.", "name": "Rohan", "pet": "Bruno"}}}, "block_order": ["one", "two", "three"]},
-    "community": {"type": "mowmy-community", "blocks": {"one": {"type": "image"}, "two": {"type": "image"}, "three": {"type": "image"}, "four": {"type": "image"}}, "block_order": ["one", "two", "three", "four"]},
-    "newsletter": {"type": "mowmy-newsletter", "settings": {"heading": "A Little More Joy in Your Inbox", "subtext": "Get pet care tips, new drops, and exclusive offers.", "placeholder": "Your email address", "button_text": "Subscribe"}}
+    "hero": {
+      "type": "mowmy-hero",
+      "blocks": {
+        "slide_1": { "type": "slide" },
+        "slide_2": { "type": "slide" },
+        "slide_3": { "type": "slide" },
+        "slide_4": { "type": "slide" }
+      },
+      "block_order": ["slide_1", "slide_2", "slide_3", "slide_4"]
+    },
+    "shop_by_category": {
+      "type": "mowmy-shop-categories",
+      "settings": {
+        "eyebrow": "Shop by category",
+        "heading": "Made for Every Little Routine",
+        "subtext": "From morning walks to afternoon naps, find the right essentials for the moments that matter."
+      },
+      "blocks": {
+        "dogs": { "type": "category", "settings": { "title": "Dog Apparel", "cta": "Shop dog apparel", "link": "/collections/pet-apparel", "alt": "Dog wearing premium apparel" } },
+        "cats": { "type": "category", "settings": { "title": "Cat Essentials", "cta": "Shop cat essentials", "link": "/collections/cats", "alt": "Cat wearing a premium accessory" } },
+        "walk": { "type": "category", "settings": { "title": "Harness & Leash", "cta": "Get walk ready", "link": "/collections/walk-essentials", "alt": "Dog wearing a secure walking harness" } },
+        "beds": { "type": "category", "settings": { "title": "Pet Beds", "cta": "Shop cozy beds", "link": "/collections/beds", "alt": "Dog sleeping on a comfortable bed" } },
+        "toys": { "type": "category", "settings": { "title": "Toys", "cta": "Shop playtime", "link": "/collections/toys", "alt": "Pet playing with an enriching toy" } },
+        "grooming": { "type": "category", "settings": { "title": "Grooming", "cta": "Shop grooming", "link": "/collections/grooming", "alt": "Dog enjoying gentle grooming" } }
+      },
+      "block_order": ["dogs", "cats", "walk", "beds", "toys", "grooming"]
+    },
+    "featured_collection": {
+      "type": "mowmy-featured-collection",
+      "settings": { "eyebrow": "Pet parent favorites", "heading": "Best Sellers", "text": "The pieces pets love and their humans recommend.", "limit": 4, "soft_background": false }
+    },
+    "promo_banners": {
+      "type": "mowmy-promo-banners",
+      "blocks": {
+        "walk": { "type": "banner", "settings": { "title": "Walk Ready Essentials", "text": "Secure, comfortable gear for every adventure.", "label": "Shop walks", "link": "/collections/walk-essentials" } },
+        "beds": { "type": "banner", "settings": { "title": "Cozy Beds for Better Sleep", "text": "Soft support for serious snoozing.", "label": "Shop beds", "link": "/collections/beds" } },
+        "toys": { "type": "banner", "settings": { "title": "Toys That Keep Them Busy", "text": "Playful picks for curious minds.", "label": "Shop toys", "link": "/collections/toys" } }
+      },
+      "block_order": ["walk", "beds", "toys"]
+    },
+    "why_choose": {
+      "type": "mowmy-trust-strip",
+      "blocks": {
+        "safe": { "type": "trust_item", "settings": { "icon": "01", "title": "Pet-Safe Materials", "text": "Thoughtful materials chosen for everyday life." } },
+        "fit": { "type": "trust_item", "settings": { "icon": "02", "title": "Comfortable Fit", "text": "Designed around movement, rest and play." } },
+        "quality": { "type": "trust_item", "settings": { "icon": "03", "title": "Curated Quality", "text": "Useful, dependable pieces with considered details." } },
+        "delivery": { "type": "trust_item", "settings": { "icon": "04", "title": "Fast Delivery", "text": "Carefully packed and reliably dispatched." } }
+      },
+      "block_order": ["safe", "fit", "quality", "delivery"]
+    },
+    "story": {
+      "type": "mowmy-story",
+      "settings": { "eyebrow": "The Mowmy Tails story", "heading": "Made for Pets Who Are Family", "body": "We believe the best pet products should feel good, work beautifully and fit naturally into the home you share. Every piece is chosen with comfort, style, care and love in mind.", "button_text": "Know Our Story", "link": "/pages/about", "image_alt": "Pet parent sharing a loving moment with their dog" }
+    },
+    "new_arrivals": {
+      "type": "mowmy-new-arrivals",
+      "settings": { "eyebrow": "Freshly fetched", "heading": "New Arrivals", "text": "New comfort, color and joy for their everyday routine.", "limit": 4, "soft_background": true }
+    },
+    "size_guide_section": { "type": "mowmy-size-guide" },
+    "testimonials": {
+      "type": "mowmy-testimonials",
+      "blocks": {
+        "one": { "type": "review", "settings": { "review": "The quality feels beautiful and the fit was perfect from the first walk.", "name": "Aarushi", "pet": "Milo" } },
+        "two": { "type": "review", "settings": { "review": "Our cat actually chose this bed over the sofa. It looks lovely in our home too.", "name": "Naina", "pet": "Miso" } },
+        "three": { "type": "review", "settings": { "review": "Thoughtful packaging, fast delivery and a harness that feels secure without being bulky.", "name": "Rohan", "pet": "Bruno" } }
+      },
+      "block_order": ["one", "two", "three"]
+    },
+    "community_gallery": {
+      "type": "mowmy-community",
+      "blocks": { "one": { "type": "image" }, "two": { "type": "image" }, "three": { "type": "image" }, "four": { "type": "image" } },
+      "block_order": ["one", "two", "three", "four"]
+    },
+    "newsletter": {
+      "type": "mowmy-newsletter",
+      "settings": { "heading": "A Little More Joy in Your Inbox", "subtext": "Get pet care tips, new drops, and exclusive offers.", "placeholder": "Your email address", "button_text": "Subscribe" }
+    }
   },
-  "order": ["hero", "categories", "best_sellers", "promos", "trust", "story", "new_arrivals", "size_guide", "testimonials", "community", "newsletter"]
+  "order": [
+    "hero",
+    "shop_by_category",
+    "featured_collection",
+    "promo_banners",
+    "why_choose",
+    "story",
+    "new_arrivals",
+    "size_guide_section",
+    "testimonials",
+    "community_gallery",
+    "newsletter"
+  ]
 }
